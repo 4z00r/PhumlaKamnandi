@@ -24,8 +24,21 @@ namespace PhumlaKamnandi.Business
             //System.DateTime.Compare()
         }
 
-
-
+        public int BookingID
+        {
+            get { return bookingID; }
+            set { bookingID = value; }
+        }
+        public Room Room
+        {
+            get { return room; }
+            set { room = value; }
+        }
+        public Period Dates
+        {
+            get { return dates; }
+            set {  dates = value; }
+        }
         public int getTotalPrice()
         {
             int days = dates.numDays();

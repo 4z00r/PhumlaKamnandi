@@ -22,6 +22,11 @@ namespace PhumlaKamnandi.Business
             this.availability = availability;
         }
 
+        public int RoomID
+        {
+            get { return roomID; }
+            set { roomID = value; }
+        }
         public bool Availability
         {
             get { return availability; }
