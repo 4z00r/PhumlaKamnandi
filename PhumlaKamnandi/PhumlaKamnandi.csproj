@@ -61,12 +61,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookingDBDataSet.cs">
+      <DependentUpon>BookingDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BookingDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BookingDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Business\Booking.cs" />
+    <Compile Include="Business\BookingController.cs" />
     <Compile Include="Business\Guest.cs" />
     <Compile Include="Business\Hotel.cs" />
     <Compile Include="Business\Period.cs" />

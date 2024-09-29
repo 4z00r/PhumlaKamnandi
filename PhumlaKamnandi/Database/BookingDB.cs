@@ -24,7 +24,7 @@ namespace PhumlaKamnandi.Database
     #endregion
 
     #region Property Method: Collection
-    public Collection<Booking> AllEmployees
+    public Collection<Booking> AllBookings
     {
         get
         {
