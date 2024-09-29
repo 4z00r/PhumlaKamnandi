@@ -101,7 +101,7 @@ namespace PhumlaKamnandi.Business
         {
             int counter = 0;
             bool found = false;
-            found = (book.BookingID == bookings[counter].ID);
+            found = (book.BookingID == bookings[counter].BookingID);
             while (!found && counter < bookings.Count - 1)
             {
                 counter++;
