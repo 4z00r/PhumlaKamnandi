@@ -23,10 +23,10 @@ namespace PhumlaKamnandi.Database
     {
         #region Variable declaration
         //***Once the database is created you can find the correct connection string by using the Settings.Default object to select the correct connection string
-        private string strConn = Settings.Default.BookingDBConnectionString;
-        protected SqlConnection cnMain;
-        protected DataSet dsMain;
-        protected SqlDataAdapter daMain;
+        private string connection = Settings.Default.BookingDBConnectionString;
+        protected SqlConnection sqlConnection;
+        protected DataSet dataSet;
+        protected SqlDataAdapter dataAdapter;
         #endregion
         public enum DBOperation
         {
@@ -41,8 +41,8 @@ namespace PhumlaKamnandi.Database
             try
             {
                 //Open a connection & create a new dataset object
-                cnMain = new SqlConnection(strConn);
-                dsMain = new DataSet();
+                sqlConnection = new SqlConnection(connection);
+                dataSet = new DataSet();
             }
             catch (SystemException e)
             {
@@ -59,11 +59,11 @@ namespace PhumlaKamnandi.Database
             //fills dataset fresh from the db for a specific table and with a specific Query
             try
             {
-                daMain = new SqlDataAdapter(aSQLstring, cnMain);
-                cnMain.Open();
-                //dsMain.Clear();
-                daMain.Fill(dsMain, aTable);
-                cnMain.Close();
+                dataAdapter = new SqlDataAdapter(aSQLstring, sqlConnection);
+                sqlConnection.Open();
+                //dataSet.Clear();
+                dataAdapter.Fill(dataSet, aTable);
+                sqlConnection.Close();
             }
             catch (Exception errObj)
             {
@@ -80,11 +80,11 @@ namespace PhumlaKamnandi.Database
             try
             {
                 //open the connection
-                cnMain.Open();
+                sqlConnection.Open();
                 //***update the database table via the data adapter
-                daMain.Update(dsMain, table);
+                dataAdapter.Update(dataSet, table);
                 //---close the connection
-                cnMain.Close();
+                sqlConnection.Close();
                 //refresh the dataset
                 FillDataSet(sqlLocal, table);
                 success = true;

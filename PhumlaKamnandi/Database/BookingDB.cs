@@ -49,7 +49,7 @@ namespace PhumlaKamnandi.Database
     #region Utility Methods
     public DataSet GetDataSet()
     {
-        return dsMain;
+        return dataSet;
     }
     private void Add2Collection(string table)
     {
@@ -74,7 +74,7 @@ namespace PhumlaKamnandi.Database
         //        break;
         //}
 
-        foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
+        foreach (DataRow myRow_loopVariable in dataSet.Tables[table].Rows)
         {
             myRow = myRow_loopVariable;
             if (!(myRow.RowState == DataRowState.Deleted))
@@ -118,8 +118,9 @@ namespace PhumlaKamnandi.Database
         if (operation == DB.DBOperation.Add)
         {
             aRow["BookingID"] = aBooking.BookingID;
-            aRow["RoomID"] = aBooking.Room.RoomID;
+            
         }
+        aRow["RoomID"] = aBooking.Room.RoomID;
         aRow["CheckIn"] = aBooking.Dates.CheckIn;
         aRow["CheckOut"] = aBooking.Dates.CheckOut;
             //aRow["Role"] = (byte)aBooking.role.getRoleValue;
@@ -150,12 +151,12 @@ namespace PhumlaKamnandi.Database
         DataRow myRow;
         int returnValue = -1;
 
-        foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
+        foreach (DataRow myRow_loopVariable in dataSet.Tables[table].Rows)
         {
             myRow = myRow_loopVariable;
             if (myRow.RowState != DataRowState.Deleted)
             {
-                if (aBooking.BookingID == Convert.ToInt32(dsMain.Tables[table].Rows[rowIndex]["BookingID"]))
+                if (aBooking.BookingID == Convert.ToInt32(dataSet.Tables[table].Rows[rowIndex]["BookingID"]))
                 {
                     returnValue = rowIndex;
                     break;
@@ -188,16 +189,16 @@ namespace PhumlaKamnandi.Database
         switch (operation)
         {
             case DB.DBOperation.Add:
-                aRow = dsMain.Tables[dataTable].NewRow();
+                aRow = dataSet.Tables[dataTable].NewRow();
                 FillRow(aRow, aBooking, operation);
-                dsMain.Tables[dataTable].Rows.Add(aRow);
+                dataSet.Tables[dataTable].Rows.Add(aRow);
                 break;
             case DB.DBOperation.Edit:
-                aRow = dsMain.Tables[dataTable].Rows[FindRow(aBooking, dataTable)];
+                aRow = dataSet.Tables[dataTable].Rows[FindRow(aBooking, dataTable)];
                 FillRow(aRow, aBooking, operation);
                 break;
             case DB.DBOperation.Delete:
-                aRow = dsMain.Tables[dataTable].Rows[FindRow(aBooking, dataTable)];
+                aRow = dataSet.Tables[dataTable].Rows[FindRow(aBooking, dataTable)];
                 aRow.Delete();
                 break;
         }
@@ -212,39 +213,39 @@ namespace PhumlaKamnandi.Database
              */
         SqlParameter param = default(SqlParameter);
         param = new SqlParameter("@BookingID", SqlDbType.Int, 15, "BookingID");
-        daMain.InsertCommand.Parameters.Add(param);
+        dataAdapter.InsertCommand.Parameters.Add(param);
         
         param = new SqlParameter("@RoomID", SqlDbType.Int, 15, "RoomID");
-        daMain.InsertCommand.Parameters.Add(param);
+        dataAdapter.InsertCommand.Parameters.Add(param);
 
         param = new SqlParameter("@CheckIn", SqlDbType.DateTime, 15, "CheckIn");
-        daMain.InsertCommand.Parameters.Add(param);
+        dataAdapter.InsertCommand.Parameters.Add(param);
 
         param = new SqlParameter("@CheckOut", SqlDbType.DateTime,15, "CheckOut");
-        daMain.InsertCommand.Parameters.Add(param);
+        dataAdapter.InsertCommand.Parameters.Add(param);
 
         //switch (aBooking.role.getRoleValue)
         //{
         //    case Role.RoleType.Headwaiter:
         //        param = new SqlParameter("@Salary", SqlDbType.Money, 8, "Salary");
-        //        daMain.InsertCommand.Parameters.Add(param);
+        //        dataAdapter.InsertCommand.Parameters.Add(param);
         //        break;
         //    case Role.RoleType.Waiter:
         //        param = new SqlParameter("@Tips", SqlDbType.Money, 8, "Tips");
-        //        daMain.InsertCommand.Parameters.Add(param);
+        //        dataAdapter.InsertCommand.Parameters.Add(param);
 
         //        param = new SqlParameter("@DayRate", SqlDbType.Money, 8, "DayRate");
-        //        daMain.InsertCommand.Parameters.Add(param);
+        //        dataAdapter.InsertCommand.Parameters.Add(param);
 
         //        param = new SqlParameter("@NoOfShifts", SqlDbType.SmallInt, 4, "NoOfShifts");
-        //        daMain.InsertCommand.Parameters.Add(param);
+        //        dataAdapter.InsertCommand.Parameters.Add(param);
         //        break;
         //    case Role.RoleType.Runner:
         //        param = new SqlParameter("@DayRate", SqlDbType.Money, 8, "DayRate");
-        //        daMain.InsertCommand.Parameters.Add(param);
+        //        dataAdapter.InsertCommand.Parameters.Add(param);
 
         //        param = new SqlParameter("@NoOfShifts", SqlDbType.SmallInt, 4, "NoOfShifts");
-        //        daMain.InsertCommand.Parameters.Add(param);
+        //        dataAdapter.InsertCommand.Parameters.Add(param);
         //        break;
         //}
 
@@ -252,85 +253,84 @@ namespace PhumlaKamnandi.Database
     private void Build_UPDATE_Parameters(Booking aBooking)
     {
             /*
-             * method to update check in/out dates - keeps booking id and room the same
+             * method to update check in/out dates - keeps booking id the same
              */
         SqlParameter param = default(SqlParameter);
         param = new SqlParameter("@CheckIn", SqlDbType.DateTime, 100, "CheckIn");
         param.SourceVersion = DataRowVersion.Current;
-        daMain.UpdateCommand.Parameters.Add(param);
+        dataAdapter.UpdateCommand.Parameters.Add(param);
 
         param = new SqlParameter("@CheckOut", SqlDbType.DateTime, 15, "CheckOut");
         param.SourceVersion = DataRowVersion.Current;
-        daMain.UpdateCommand.Parameters.Add(param);
+        dataAdapter.UpdateCommand.Parameters.Add(param);
+            
+        param = new SqlParameter("@RoomID", SqlDbType.Int, 15, "RoomID");
+        param.SourceVersion = DataRowVersion.Current;
+        dataAdapter.UpdateCommand.Parameters.Add(param);
+            //switch (aBooking.role.getRoleValue)
+            //{
+            //    case Role.RoleType.Headwaiter:
+            //        param = new SqlParameter("@Salary", SqlDbType.Decimal, 2, "Salary");
+            //        param.SourceVersion = DataRowVersion.Current;
+            //        dataAdapter.UpdateCommand.Parameters.Add(param);
+            //        break;
 
-        //switch (aBooking.role.getRoleValue)
-        //{
-        //    case Role.RoleType.Headwaiter:
-        //        param = new SqlParameter("@Salary", SqlDbType.Decimal, 2, "Salary");
-        //        param.SourceVersion = DataRowVersion.Current;
-        //        daMain.UpdateCommand.Parameters.Add(param);
-        //        break;
+            //    case Role.RoleType.Waiter:
+            //        param = new SqlParameter("@Shifts", SqlDbType.SmallInt, 4, "Shifts");
+            //        param.SourceVersion = DataRowVersion.Current;
+            //        dataAdapter.UpdateCommand.Parameters.Add(param);
 
-        //    case Role.RoleType.Waiter:
-        //        param = new SqlParameter("@Shifts", SqlDbType.SmallInt, 4, "Shifts");
-        //        param.SourceVersion = DataRowVersion.Current;
-        //        daMain.UpdateCommand.Parameters.Add(param);
+            //        param = new SqlParameter("@Rate", SqlDbType.Decimal, 2, "Rate");
+            //        param.SourceVersion = DataRowVersion.Current;
+            //        dataAdapter.UpdateCommand.Parameters.Add(param);
 
-        //        param = new SqlParameter("@Rate", SqlDbType.Decimal, 2, "Rate");
-        //        param.SourceVersion = DataRowVersion.Current;
-        //        daMain.UpdateCommand.Parameters.Add(param);
+            //        param = new SqlParameter("@Tips", SqlDbType.Decimal, 2, "Tips");
+            //        param.SourceVersion = DataRowVersion.Current;
+            //        dataAdapter.UpdateCommand.Parameters.Add(param);
+            //        break;
 
-        //        param = new SqlParameter("@Tips", SqlDbType.Decimal, 2, "Tips");
-        //        param.SourceVersion = DataRowVersion.Current;
-        //        daMain.UpdateCommand.Parameters.Add(param);
-        //        break;
+            //    case Role.RoleType.Runner:
+            //        param = new SqlParameter("@Shifts", SqlDbType.SmallInt, 4, "Shifts");
+            //        param.SourceVersion = DataRowVersion.Current;
+            //        dataAdapter.UpdateCommand.Parameters.Add(param);
 
-        //    case Role.RoleType.Runner:
-        //        param = new SqlParameter("@Shifts", SqlDbType.SmallInt, 4, "Shifts");
-        //        param.SourceVersion = DataRowVersion.Current;
-        //        daMain.UpdateCommand.Parameters.Add(param);
+            //        param = new SqlParameter("@Rate", SqlDbType.Decimal, 2, "Rate");
+            //        param.SourceVersion = DataRowVersion.Current;
+            //        dataAdapter.UpdateCommand.Parameters.Add(param);
 
-        //        param = new SqlParameter("@Rate", SqlDbType.Decimal, 2, "Rate");
-        //        param.SourceVersion = DataRowVersion.Current;
-        //        daMain.UpdateCommand.Parameters.Add(param);
-
-        //        param = new SqlParameter("@Tips", SqlDbType.Decimal, 2, "Tips");
-        //        param.SourceVersion = DataRowVersion.Current;
-        //        daMain.UpdateCommand.Parameters.Add(param);
-        //        break;
-        //}
+            //        param = new SqlParameter("@Tips", SqlDbType.Decimal, 2, "Tips");
+            //        param.SourceVersion = DataRowVersion.Current;
+            //        dataAdapter.UpdateCommand.Parameters.Add(param);
+            //        break;
+            //}
         param = new SqlParameter("@Original_BookingID", SqlDbType.Int, 15, "BookingID");
         param.SourceVersion = DataRowVersion.Original;
-        daMain.UpdateCommand.Parameters.Add(param);
-
-        param = new SqlParameter("@Original_RoomID", SqlDbType.Int, 15, "EmpID");
-        param.SourceVersion = DataRowVersion.Original;
-        daMain.UpdateCommand.Parameters.Add(param);
+        dataAdapter.UpdateCommand.Parameters.Add(param);    
     }
     private void Create_UPDATE_Command(Booking aBooking)
     {
-            daMain.UpdateCommand = new SqlCommand(
-                "UPDATE Booking SET CheckIn = @CheckIn, CheckOut = @CheckOut " +
-                "WHERE BookingID = @Original_BookingID ", cnMain); // unsure if i add original_room id as well ?  
+            dataAdapter.UpdateCommand = new SqlCommand(
+                "UPDATE Booking SET RoomID = @RoomID, CheckIn = @CheckIn, CheckOut = @CheckOut" +
+                "WHERE BookingID = @Original_BookingID ", sqlConnection); // unsure if i add original_room id as well ?  
         //switch (aBooking.role.getRoleValue)
         //{
         //    case Role.RoleType.Headwaiter:
-        //        daMain.UpdateCommand = new SqlCommand(
+        //        dataAdapter.UpdateCommand = new SqlCommand(
         //            "UPDATE HeadWaiter SET Name = @Name, Phone = @Phone, Role = @Role, Salary = @Salary " +
-        //            "WHERE ID = @Original_ID", cnMain);
+        //            "WHERE ID = @Original_ID", sqlConnection);
         //        break;
 
         //    case Role.RoleType.Waiter:
-        //        daMain.UpdateCommand = new SqlCommand(
+        //        dataAdapter.UpdateCommand = new SqlCommand(
         //            "UPDATE Waiter SET Name = @Name, Phone = @Phone, Role = @Role, Rate = @Rate , Shifts = @Shifts, Tips = @Tips" +
-        //            "WHERE ID = @Original_ID", cnMain);
+        //            "WHERE ID = @Original_ID", sqlConnection);
         //        break;
 
         //    case Role.RoleType.Runner:
 
-        //        daMain.UpdateCommand = new SqlCommand(
+        //        dataAdapter.UpdateCommand = new SqlCommand(
         //            "UPDATE Runner SET Name = @Name, Phone = @Phone, Role = @Role, Rate = @Rate , Shifts = @Shifts, Tips = @Tips  " +
-        //            "WHERE ID = @Original_ID", cnMain);
+        //            "WHERE ID = @Original_ID", sqlConnection);
         //        break;
         //}
         Build_UPDATE_Parameters(aBooking);
@@ -338,27 +338,27 @@ namespace PhumlaKamnandi.Database
 
     private void Create_INSERT_Command(Booking aBooking)
     {
-            daMain.InsertCommand = new SqlCommand(
+            dataAdapter.InsertCommand = new SqlCommand(
                 "INSERT into Booking (BookingID, RoomID, CheckIn, CheckOut) " +
-                "VALUES (@BookingID, @RoomEmpID, @CheckIn, @CheckOut)", cnMain);
+                "VALUES (@BookingID, @RoomEmpID, @CheckIn, @CheckOut)", sqlConnection);
         //    switch (aBooking.role.getRoleValue)
         //{
         //    case Role.RoleType.Headwaiter:
-        //        daMain.InsertCommand = new SqlCommand("INSERT into HeadWaiter (ID, EMPID, Name, Phone, Role, Salary) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @Salary)", cnMain);
+        //        dataAdapter.InsertCommand = new SqlCommand("INSERT into HeadWaiter (ID, EMPID, Name, Phone, Role, Salary) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @Salary)", sqlConnection);
         //        break;
         //    case Role.RoleType.Waiter:
-        //        daMain.InsertCommand = new SqlCommand("INSERT into Waiter (ID, EMPID, Name, Phone, Role, Tips, DayRate, NoOfShifts) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @Tips, @DayRate, @NoOfShifts)", cnMain);
+        //        dataAdapter.InsertCommand = new SqlCommand("INSERT into Waiter (ID, EMPID, Name, Phone, Role, Tips, DayRate, NoOfShifts) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @Tips, @DayRate, @NoOfShifts)", sqlConnection);
         //        break;
         //    case Role.RoleType.Runner:
-        //        daMain.InsertCommand = new SqlCommand("INSERT into Runner (ID, EMPID, Name, Phone, Role, DayRate, NoOfShifts) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @DayRate, @NoOfShifts)", cnMain);
+        //        dataAdapter.InsertCommand = new SqlCommand("INSERT into Runner (ID, EMPID, Name, Phone, Role, DayRate, NoOfShifts) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @DayRate, @NoOfShifts)", sqlConnection);
         //        break;
         //}
         Build_INSERT_Parameters(aBooking);
     }
     private void Create_DELETE_Command(Booking aBooking)
     {
-        daMain.DeleteCommand = new SqlCommand(
-            "DELETE FROM Booking WHERE BookingID = @Original_BookingID", cnMain);
+        dataAdapter.DeleteCommand = new SqlCommand(
+            "DELETE FROM Booking WHERE BookingID = @Original_BookingID", sqlConnection);
     }
 
     public bool UpdateDataSource(Booking aBooking)
