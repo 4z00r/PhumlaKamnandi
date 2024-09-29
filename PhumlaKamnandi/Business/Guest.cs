@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,18 +10,12 @@ namespace PhumlaKamnandi.Business
     public class Guest : Person
     {
         private int guestID;
-        private Booking booking;
+        private Collection<Booking> bookings;
 
-        public Guest(int ID, Booking booking)
+        public Guest(int ID, Collection<Booking> bookings)
         {
             this.guestID = ID;
-            //this.booking = booking; 
-        }
-
-        public Booking makeBooking(int id, Room r, Period dates)
-        {
-            booking = new Booking(id, r, dates);
-            return booking;
+            this.bookings = bookings;
         }
 
 
