@@ -8,12 +8,12 @@ namespace PhumlaKamnandi.Business
 {
     public class Guest : Person
     {
-        private int customerID;
+        private int guestID;
         private Booking booking;
 
         public Guest(int ID, Booking booking)
         {
-            this.customerID = ID;
+            this.guestID = ID;
             //this.booking = booking; 
         }
 

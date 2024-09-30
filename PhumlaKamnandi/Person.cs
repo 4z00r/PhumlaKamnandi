@@ -10,14 +10,15 @@ namespace PhumlaKamnandi
     {
 
         #region data members
-        private string Id, name, address;
+        private int id; 
+        private String name, telephone, address;
         #endregion
 
         #region Properties
-        public string ID
+        public int ID
         {
-            get { return Id; }
-            set { Id = value; }
+            get { return id; }
+            set { id = value; }
         }
 
         public string Name
@@ -30,19 +31,24 @@ namespace PhumlaKamnandi
             get { return address; }
             set { address = value; }
         }
+        public string Telephone
+        {
+            get { return telephone; }
+            set {  telephone = value; }
+        }
         #endregion
 
         #region Construtor
         public Person()
         {
-            Id = "";
+            id = 0;
             name = "";
             address = "";
         }
 
-        public Person(string pID, string pName, string pAddress)
+        public Person(int pID, string pName, string pAddress)
         {
-            Id = pID;
+            id = pID;
             name = pName;
             address = pAddress;
         }
@@ -51,7 +57,7 @@ namespace PhumlaKamnandi
         #region ToStringMethod
         public override string ToString()
         {
-            return name + '\n' + Address;
+            return name + '\n' + address;
         }
 
         #endregion
