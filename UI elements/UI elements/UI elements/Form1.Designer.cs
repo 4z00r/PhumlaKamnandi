@@ -46,6 +46,7 @@
             this.Welcome.Size = new System.Drawing.Size(620, 79);
             this.Welcome.TabIndex = 0;
             this.Welcome.Text = "Phumla Kamnandi Hotels";
+            this.Welcome.Click += new System.EventHandler(this.Welcome_Click);
             // 
             // label1
             // 
@@ -57,6 +58,7 @@
             this.label1.Size = new System.Drawing.Size(181, 45);
             this.label1.TabIndex = 1;
             this.label1.Text = "Welcome To";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // ReservationButton
             // 

@@ -68,6 +68,7 @@
             this.label1.Size = new System.Drawing.Size(126, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Guest Name";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -78,6 +79,7 @@
             this.label2.Size = new System.Drawing.Size(134, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "10% Deposit";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -88,6 +90,7 @@
             this.label3.Size = new System.Drawing.Size(200, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "Credit Card Number";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -98,6 +101,7 @@
             this.label4.Size = new System.Drawing.Size(287, 24);
             this.label4.TabIndex = 3;
             this.label4.Text = "No. Of Children 5 And Below";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -108,6 +112,7 @@
             this.label5.Size = new System.Drawing.Size(144, 24);
             this.label5.TabIndex = 4;
             this.label5.Text = "No. Of Rooms";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -118,6 +123,7 @@
             this.label6.Size = new System.Drawing.Size(171, 24);
             this.label6.TabIndex = 5;
             this.label6.Text = "Guest Telephone";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -128,6 +134,7 @@
             this.label7.Size = new System.Drawing.Size(125, 24);
             this.label7.TabIndex = 6;
             this.label7.Text = "Guest Email";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -138,6 +145,7 @@
             this.label8.Size = new System.Drawing.Size(244, 24);
             this.label8.TabIndex = 7;
             this.label8.Text = "No. Of Children Above 5";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -148,6 +156,7 @@
             this.label9.Size = new System.Drawing.Size(139, 24);
             this.label9.TabIndex = 8;
             this.label9.Text = "No. Of Adults";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -158,6 +167,7 @@
             this.label10.Size = new System.Drawing.Size(160, 24);
             this.label10.TabIndex = 9;
             this.label10.Text = "Remaining Cost";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // NameBox
             // 
@@ -166,6 +176,7 @@
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(257, 31);
             this.NameBox.TabIndex = 10;
+            this.NameBox.TextChanged += new System.EventHandler(this.NameBox_TextChanged);
             // 
             // label11
             // 
@@ -176,6 +187,7 @@
             this.label11.Size = new System.Drawing.Size(145, 24);
             this.label11.TabIndex = 11;
             this.label11.Text = "Seasonal Rate";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label12
             // 
@@ -186,6 +198,7 @@
             this.label12.Size = new System.Drawing.Size(96, 24);
             this.label12.TabIndex = 12;
             this.label12.Text = "Check-In";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label13
             // 
@@ -196,6 +209,7 @@
             this.label13.Size = new System.Drawing.Size(110, 24);
             this.label13.TabIndex = 13;
             this.label13.Text = "Check-Out";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // CreditBox
             // 
@@ -204,6 +218,7 @@
             this.CreditBox.Name = "CreditBox";
             this.CreditBox.Size = new System.Drawing.Size(288, 31);
             this.CreditBox.TabIndex = 14;
+            this.CreditBox.TextChanged += new System.EventHandler(this.CreditBox_TextChanged);
             // 
             // RoomBox
             // 
@@ -212,6 +227,7 @@
             this.RoomBox.Name = "RoomBox";
             this.RoomBox.Size = new System.Drawing.Size(64, 31);
             this.RoomBox.TabIndex = 16;
+            this.RoomBox.TextChanged += new System.EventHandler(this.RoomBox_TextChanged);
             // 
             // AdultBox
             // 
@@ -220,6 +236,7 @@
             this.AdultBox.Name = "AdultBox";
             this.AdultBox.Size = new System.Drawing.Size(64, 31);
             this.AdultBox.TabIndex = 17;
+            this.AdultBox.TextChanged += new System.EventHandler(this.AdultBox_TextChanged);
             // 
             // CostBox
             // 
@@ -228,6 +245,7 @@
             this.CostBox.Name = "CostBox";
             this.CostBox.Size = new System.Drawing.Size(156, 31);
             this.CostBox.TabIndex = 20;
+            this.CostBox.TextChanged += new System.EventHandler(this.CostBox_TextChanged);
             // 
             // DepositBox
             // 
@@ -236,6 +254,7 @@
             this.DepositBox.Name = "DepositBox";
             this.DepositBox.Size = new System.Drawing.Size(156, 31);
             this.DepositBox.TabIndex = 21;
+            this.DepositBox.TextChanged += new System.EventHandler(this.DepositBox_TextChanged);
             // 
             // PhoneBox
             // 
@@ -244,6 +263,7 @@
             this.PhoneBox.Name = "PhoneBox";
             this.PhoneBox.Size = new System.Drawing.Size(237, 31);
             this.PhoneBox.TabIndex = 23;
+            this.PhoneBox.TextChanged += new System.EventHandler(this.PhoneBox_TextChanged);
             // 
             // EmailBox
             // 
@@ -252,6 +272,7 @@
             this.EmailBox.Name = "EmailBox";
             this.EmailBox.Size = new System.Drawing.Size(257, 31);
             this.EmailBox.TabIndex = 24;
+            this.EmailBox.TextChanged += new System.EventHandler(this.EmailBox_TextChanged);
             // 
             // Below5Box
             // 
@@ -260,6 +281,7 @@
             this.Below5Box.Name = "Below5Box";
             this.Below5Box.Size = new System.Drawing.Size(64, 31);
             this.Below5Box.TabIndex = 25;
+            this.Below5Box.TextChanged += new System.EventHandler(this.Below5Box_TextChanged);
             // 
             // Above5Box
             // 
@@ -268,6 +290,7 @@
             this.Above5Box.Name = "Above5Box";
             this.Above5Box.Size = new System.Drawing.Size(64, 31);
             this.Above5Box.TabIndex = 26;
+            this.Above5Box.TextChanged += new System.EventHandler(this.Above5Box_TextChanged);
             // 
             // CheckInDate
             // 
@@ -276,6 +299,7 @@
             this.CheckInDate.Name = "CheckInDate";
             this.CheckInDate.Size = new System.Drawing.Size(334, 31);
             this.CheckInDate.TabIndex = 27;
+            this.CheckInDate.ValueChanged += new System.EventHandler(this.CheckInDate_ValueChanged);
             // 
             // CheckOutDate
             // 
@@ -284,6 +308,7 @@
             this.CheckOutDate.Name = "CheckOutDate";
             this.CheckOutDate.Size = new System.Drawing.Size(334, 31);
             this.CheckOutDate.TabIndex = 28;
+            this.CheckOutDate.ValueChanged += new System.EventHandler(this.CheckOutDate_ValueChanged);
             // 
             // SeasonBox
             // 
@@ -297,6 +322,7 @@
             this.SeasonBox.Name = "SeasonBox";
             this.SeasonBox.Size = new System.Drawing.Size(121, 32);
             this.SeasonBox.TabIndex = 29;
+            this.SeasonBox.SelectedIndexChanged += new System.EventHandler(this.SeasonBox_SelectedIndexChanged);
             // 
             // CancelButton
             // 
@@ -307,6 +333,7 @@
             this.CancelButton.TabIndex = 30;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // ReserveButton
             // 
@@ -317,6 +344,7 @@
             this.ReserveButton.TabIndex = 31;
             this.ReserveButton.Text = "Reserve";
             this.ReserveButton.UseVisualStyleBackColor = true;
+            this.ReserveButton.Click += new System.EventHandler(this.ReserveButton_Click);
             // 
             // ExitButton
             // 

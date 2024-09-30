@@ -67,5 +67,15 @@ namespace UI_elements
 
             this.Hide();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Welcome_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

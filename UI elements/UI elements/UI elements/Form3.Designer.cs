@@ -54,6 +54,7 @@
             this.label1.Size = new System.Drawing.Size(126, 24);
             this.label1.TabIndex = 1;
             this.label1.Text = "Guest Name";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // NameDropDown
             // 
@@ -63,6 +64,7 @@
             this.NameDropDown.Name = "NameDropDown";
             this.NameDropDown.Size = new System.Drawing.Size(257, 32);
             this.NameDropDown.TabIndex = 30;
+            this.NameDropDown.SelectedIndexChanged += new System.EventHandler(this.NameDropDown_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -73,6 +75,7 @@
             this.label2.Size = new System.Drawing.Size(253, 24);
             this.label2.TabIndex = 31;
             this.label2.Text = "Credit Card Authorisation";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // AuthorisationDropDown
             // 
@@ -85,6 +88,7 @@
             this.AuthorisationDropDown.Name = "AuthorisationDropDown";
             this.AuthorisationDropDown.Size = new System.Drawing.Size(162, 32);
             this.AuthorisationDropDown.TabIndex = 32;
+            this.AuthorisationDropDown.SelectedIndexChanged += new System.EventHandler(this.AuthorisationDropDown_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -95,6 +99,7 @@
             this.label3.Size = new System.Drawing.Size(102, 24);
             this.label3.TabIndex = 33;
             this.label3.Text = "Signature";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // SignatureBox
             // 
@@ -103,6 +108,7 @@
             this.SignatureBox.Name = "SignatureBox";
             this.SignatureBox.Size = new System.Drawing.Size(139, 31);
             this.SignatureBox.TabIndex = 34;
+            this.SignatureBox.TextChanged += new System.EventHandler(this.SignatureBox_TextChanged);
             // 
             // RoomBox
             // 
@@ -111,6 +117,7 @@
             this.RoomBox.Name = "RoomBox";
             this.RoomBox.Size = new System.Drawing.Size(139, 31);
             this.RoomBox.TabIndex = 36;
+            this.RoomBox.TextChanged += new System.EventHandler(this.RoomBox_TextChanged);
             // 
             // label4
             // 
@@ -121,6 +128,7 @@
             this.label4.Size = new System.Drawing.Size(166, 24);
             this.label4.TabIndex = 35;
             this.label4.Text = "Room Number/s";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // CheckInBox
             // 
@@ -129,6 +137,7 @@
             this.CheckInBox.Name = "CheckInBox";
             this.CheckInBox.Size = new System.Drawing.Size(139, 31);
             this.CheckInBox.TabIndex = 38;
+            this.CheckInBox.TextChanged += new System.EventHandler(this.CheckInBox_TextChanged);
             // 
             // label5
             // 
@@ -139,6 +148,7 @@
             this.label5.Size = new System.Drawing.Size(179, 24);
             this.label5.TabIndex = 37;
             this.label5.Text = "Booking Check-in";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // CheckOutBox
             // 
@@ -147,6 +157,7 @@
             this.CheckOutBox.Name = "CheckOutBox";
             this.CheckOutBox.Size = new System.Drawing.Size(139, 31);
             this.CheckOutBox.TabIndex = 40;
+            this.CheckOutBox.TextChanged += new System.EventHandler(this.CheckOutBox_TextChanged);
             // 
             // label6
             // 
@@ -157,6 +168,7 @@
             this.label6.Size = new System.Drawing.Size(195, 24);
             this.label6.TabIndex = 39;
             this.label6.Text = "Booking Check-Out";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // ExitButton
             // 
@@ -178,6 +190,7 @@
             this.CheckInButton.TabIndex = 42;
             this.CheckInButton.Text = "Check-In";
             this.CheckInButton.UseVisualStyleBackColor = true;
+            this.CheckInButton.Click += new System.EventHandler(this.CheckInButton_Click);
             // 
             // CancelButton
             // 
@@ -188,6 +201,7 @@
             this.CancelButton.TabIndex = 41;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // Form3
             // 

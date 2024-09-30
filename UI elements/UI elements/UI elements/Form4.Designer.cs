@@ -58,6 +58,7 @@
             this.RoomDropDown.Name = "RoomDropDown";
             this.RoomDropDown.Size = new System.Drawing.Size(139, 31);
             this.RoomDropDown.TabIndex = 40;
+            this.RoomDropDown.TextChanged += new System.EventHandler(this.RoomDropDown_TextChanged);
             // 
             // label4
             // 
@@ -68,6 +69,7 @@
             this.label4.Size = new System.Drawing.Size(166, 24);
             this.label4.TabIndex = 39;
             this.label4.Text = "Room Number/s";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // NameDropDown
             // 
@@ -77,6 +79,7 @@
             this.NameDropDown.Name = "NameDropDown";
             this.NameDropDown.Size = new System.Drawing.Size(257, 32);
             this.NameDropDown.TabIndex = 38;
+            this.NameDropDown.SelectedIndexChanged += new System.EventHandler(this.NameDropDown_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -87,6 +90,7 @@
             this.label1.Size = new System.Drawing.Size(126, 24);
             this.label1.TabIndex = 37;
             this.label1.Text = "Guest Name";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -97,6 +101,7 @@
             this.label2.Size = new System.Drawing.Size(181, 24);
             this.label2.TabIndex = 41;
             this.label2.Text = "Additional service";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -107,6 +112,7 @@
             this.label3.Size = new System.Drawing.Size(181, 24);
             this.label3.TabIndex = 42;
             this.label3.Text = "Additional service";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label5
             // 
@@ -117,6 +123,7 @@
             this.label5.Size = new System.Drawing.Size(181, 24);
             this.label5.TabIndex = 43;
             this.label5.Text = "Additional service";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // ServiceBox
             // 
@@ -130,6 +137,7 @@
             this.ServiceBox.Name = "ServiceBox";
             this.ServiceBox.Size = new System.Drawing.Size(199, 32);
             this.ServiceBox.TabIndex = 44;
+            this.ServiceBox.SelectedIndexChanged += new System.EventHandler(this.ServiceBox_SelectedIndexChanged);
             // 
             // ServiceBox3
             // 
@@ -143,6 +151,7 @@
             this.ServiceBox3.Name = "ServiceBox3";
             this.ServiceBox3.Size = new System.Drawing.Size(199, 32);
             this.ServiceBox3.TabIndex = 45;
+            this.ServiceBox3.SelectedIndexChanged += new System.EventHandler(this.ServiceBox3_SelectedIndexChanged);
             // 
             // ServiceBox2
             // 
@@ -156,6 +165,7 @@
             this.ServiceBox2.Name = "ServiceBox2";
             this.ServiceBox2.Size = new System.Drawing.Size(199, 32);
             this.ServiceBox2.TabIndex = 46;
+            this.ServiceBox2.SelectedIndexChanged += new System.EventHandler(this.ServiceBox2_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -166,6 +176,7 @@
             this.label6.Size = new System.Drawing.Size(200, 24);
             this.label6.TabIndex = 47;
             this.label6.Text = "Credit Card Number";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // CreditBox
             // 
@@ -174,6 +185,7 @@
             this.CreditBox.Name = "CreditBox";
             this.CreditBox.Size = new System.Drawing.Size(199, 31);
             this.CreditBox.TabIndex = 48;
+            this.CreditBox.TextChanged += new System.EventHandler(this.CreditBox_TextChanged);
             // 
             // label7
             // 
@@ -184,6 +196,7 @@
             this.label7.Size = new System.Drawing.Size(114, 24);
             this.label7.TabIndex = 49;
             this.label7.Text = "Room Rate";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -194,6 +207,7 @@
             this.label8.Size = new System.Drawing.Size(194, 24);
             this.label8.TabIndex = 50;
             this.label8.Text = "Additional Services";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -204,6 +218,7 @@
             this.label9.Size = new System.Drawing.Size(107, 24);
             this.label9.TabIndex = 51;
             this.label9.Text = "Total Cost";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // TotalBox
             // 
@@ -212,6 +227,7 @@
             this.TotalBox.Name = "TotalBox";
             this.TotalBox.Size = new System.Drawing.Size(139, 31);
             this.TotalBox.TabIndex = 52;
+            this.TotalBox.TextChanged += new System.EventHandler(this.TotalBox_TextChanged);
             // 
             // AddServicesBox
             // 
@@ -220,6 +236,7 @@
             this.AddServicesBox.Name = "AddServicesBox";
             this.AddServicesBox.Size = new System.Drawing.Size(139, 31);
             this.AddServicesBox.TabIndex = 53;
+            this.AddServicesBox.TextChanged += new System.EventHandler(this.AddServicesBox_TextChanged);
             // 
             // RoomRateBox
             // 
@@ -228,6 +245,7 @@
             this.RoomRateBox.Name = "RoomRateBox";
             this.RoomRateBox.Size = new System.Drawing.Size(139, 31);
             this.RoomRateBox.TabIndex = 54;
+            this.RoomRateBox.TextChanged += new System.EventHandler(this.RoomRateBox_TextChanged);
             // 
             // ExitButton
             // 
@@ -249,6 +267,7 @@
             this.CheckOutButton.TabIndex = 56;
             this.CheckOutButton.Text = "Check-Out";
             this.CheckOutButton.UseVisualStyleBackColor = true;
+            this.CheckOutButton.Click += new System.EventHandler(this.CheckOutButton_Click);
             // 
             // CancelButton
             // 
@@ -259,6 +278,7 @@
             this.CancelButton.TabIndex = 55;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // Form4
             // 
