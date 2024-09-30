@@ -14,12 +14,18 @@ namespace PhumlaKamnandi.Business
         private int bookingID;
         private Room room;
         private Period dates;
+        private Price price;
 
-        public Booking(int id, Room r, Period dates)
+        public Booking(Room r) 
+        {
+            this.room = r;
+        }
+        public Booking(int id, Room r, Period dates, Price pricing)
         {
             this.bookingID = id;
             this.room = r;
             this.dates = dates;
+            this.price = pricing;
 
             //System.DateTime.Compare()
         }
@@ -39,10 +45,15 @@ namespace PhumlaKamnandi.Business
             get { return dates; }
             set {  dates = value; }
         }
+        public Price Pricing
+        {
+            get { return price; }
+            set { price = value; }
+        }
         public int getTotalPrice()
         {
             int days = dates.numDays();
-            int total = room.Pricing.Cost * days;
+            int total = Pricing.Cost * days;
             return total;
         }
 

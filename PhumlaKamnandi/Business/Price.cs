@@ -17,6 +17,7 @@ namespace PhumlaKamnandi.Business
         private int cost;
 
         public Price() { }
+        public Price(int cost, Period date) { this.cost = cost; this.date = date; }
         public float determinePrice()
         {
             Period.Season season = date.DetermineSeason();

@@ -12,7 +12,13 @@ namespace PhumlaKamnandi.Business
         private int guestID;
         private Collection<Booking> bookings;
 
-        public Guest(int ID, Collection<Booking> bookings)
+        public int GuestID
+        {
+            get { return guestID; }
+            set { guestID = value; }
+        }
+
+        public Guest(int ID, string pName, string address, Collection<Booking> bookings) : base(pName, address)
         {
             this.guestID = ID;
             this.bookings = bookings;

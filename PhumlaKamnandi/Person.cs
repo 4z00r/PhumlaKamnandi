@@ -10,16 +10,10 @@ namespace PhumlaKamnandi
     {
 
         #region data members
-        private int id; 
         private String name, telephone, address;
         #endregion
 
         #region Properties
-        public int ID
-        {
-            get { return id; }
-            set { id = value; }
-        }
 
         public string Name
         {
@@ -41,14 +35,12 @@ namespace PhumlaKamnandi
         #region Construtor
         public Person()
         {
-            id = 0;
             name = "";
             address = "";
         }
 
-        public Person(int pID, string pName, string pAddress)
+        public Person(string pName, string pAddress)
         {
-            id = pID;
             name = pName;
             address = pAddress;
         }

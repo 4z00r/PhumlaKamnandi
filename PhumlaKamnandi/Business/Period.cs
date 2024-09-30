@@ -78,6 +78,7 @@ namespace PhumlaKamnandi.Business
 
         public int numDays()
         {
+            // use built in functions !!!
             int days = checkOut.Day - checkIn.Day;
             return days;
         }
