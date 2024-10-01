@@ -14,12 +14,8 @@ namespace PhumlaKamnandi.Database
     {
         #region  Data members        
         private string table1 = "Booking";
-    private string sqlLocal1 = "SELECT * FROM Booking";
-    //private string table2 = "Waiter";
-    //private string sqlLocal2 = "SELECT * FROM Waiter";
-    //private string table3 = "Runner";
-    //private string sqlLocal3 = "SELECT * FROM Runner";
-    private Collection<Booking> bookings;
+        private string sqlLocal1 = "SELECT * FROM Booking";
+        private Collection<Booking> bookings;
 
     #endregion
 
@@ -39,10 +35,7 @@ namespace PhumlaKamnandi.Database
         bookings = new Collection<Booking>();
         FillDataSet(sqlLocal1, table1);
         Add2Collection(table1);
-        //FillDataSet(sqlLocal2, table2);
-        //Add2Collection(table2);
-        //FillDataSet(sqlLocal3, table3);
-        //Add2Collection(table3);
+        
     }
     #endregion
 
@@ -56,24 +49,7 @@ namespace PhumlaKamnandi.Database
 
         DataRow myRow = null;
         Booking aBooking; 
-        //Booking aBooking;
-        //HeadWaiter headw;
-        //Waiter waiter;
-        //Runner runner;
-        //Role.RoleType roleValue = Role.RoleType.NoRole;
-        //switch (table)
-        //{
-        //    case "HeadWaiter":
-        //        roleValue = Role.RoleType.Headwaiter;
-        //        break;
-        //    case "Waiter":
-        //        roleValue = Role.RoleType.Waiter;
-        //        break;
-        //    case "Runner":
-        //        roleValue = Role.RoleType.Runner;
-        //        break;
-        //}
-
+        
         foreach (DataRow myRow_loopVariable in dataSet.Tables[table].Rows)
         {
             myRow = myRow_loopVariable;
@@ -84,29 +60,7 @@ namespace PhumlaKamnandi.Database
                 aBooking.Room.RoomID = Convert.ToInt32(myRow["RoomID"]);
                 aBooking.Dates = new Period( Convert.ToDateTime(myRow["CheckIn"]), Convert.ToDateTime(myRow["CheckOut"]) );
                 aBooking.Pricing = new Price(Convert.ToInt32(myRow["Price"]), aBooking.Dates);
-                //    aBooking.Name = Convert.ToString(myRow["Name"]).TrimEnd();
-                //aBooking.Telephone = Convert.ToString(myRow["Phone"]).TrimEnd();
-                //aBooking.role.getRoleValue = (Role.RoleType)Convert.ToByte(myRow["Role"]);
-
-                //switch (aBooking.role.getRoleValue)
-                //{
-                //    case Role.RoleType.Headwaiter:
-                //        headw = (HeadWaiter)aBooking.role;
-                //        headw.SalaryAmount = Convert.ToDecimal(myRow["Salary"]);
-                //        break;
-                //    case Role.RoleType.Waiter:
-                //        waiter = (Waiter)aBooking.role;
-                //        waiter.getRate = Convert.ToDecimal(myRow["DayRate"]);
-                //        waiter.getShifts = Convert.ToInt32(myRow["NoOfShifts"]);
-                //        waiter.getTips = Convert.ToDecimal(myRow["Tips"]);
-                //        break;
-                //    case Role.RoleType.Runner:
-                //        runner = (Runner)aBooking.role;
-                //        runner.getRate = Convert.ToDecimal(myRow["DayRate"]);
-                //        runner.getShifts = Convert.ToInt32(myRow["NoOfShifts"]);
-                //        runner.getTips = Convert.ToDecimal(myRow["Tips"]);
-                //        break;
-                //}
+                
                 bookings.Add(aBooking);
             }
         }
@@ -123,27 +77,7 @@ namespace PhumlaKamnandi.Database
         aRow["RoomID"] = aBooking.Room.RoomID;
         aRow["CheckIn"] = aBooking.Dates.CheckIn;
         aRow["CheckOut"] = aBooking.Dates.CheckOut;
-            //aRow["Role"] = (byte)aBooking.role.getRoleValue;
-
-            //switch (aBooking.role.getRoleValue)
-            //{
-            //    case Role.RoleType.Headwaiter:
-            //        headwaiter = (HeadWaiter)aBooking.role;
-            //        aRow["Salary"] = headwaiter.SalaryAmount;
-            //        break;
-            //    case Role.RoleType.Waiter:
-            //        waiter = (Waiter)aBooking.role;
-            //        aRow["DayRate"] = waiter.getRate;
-            //        aRow["NoOfShifts"] = waiter.getShifts;
-            //        aRow["Tips"] = waiter.getTips;
-            //        break;
-            //    case Role.RoleType.Runner:
-            //        runner = (Runner)aBooking.role;
-            //        aRow["DayRate"] = runner.getRate;
-            //        aRow["NoOfShifts"] = runner.getShifts;
-            //        aRow["Tips"] = runner.getTips;
-            //        break;
-            //}
+            
         }
     private int FindRow(Booking aBooking, string table)
     {
@@ -174,18 +108,6 @@ namespace PhumlaKamnandi.Database
         DataRow aRow = null;
         string dataTable = table1;
         
-        //switch (aBooking.role.getRoleValue)
-        //{
-        //    case Role.RoleType.Headwaiter:
-        //        dataTable = table1;
-        //        break;
-        //    case Role.RoleType.Waiter:
-        //        dataTable = table2;
-        //        break;
-        //    case Role.RoleType.Runner:
-        //        dataTable = table3;
-        //        break;
-        //}
         switch (operation)
         {
             case DB.DBOperation.Add:
@@ -227,31 +149,6 @@ namespace PhumlaKamnandi.Database
         param = new SqlParameter("@Price", SqlDbType.Int, 15, "Price");
         dataAdapter.InsertCommand.Parameters.Add(param);
 
-            //switch (aBooking.role.getRoleValue)
-            //{
-            //    case Role.RoleType.Headwaiter:
-            //        param = new SqlParameter("@Salary", SqlDbType.Money, 8, "Salary");
-            //        dataAdapter.InsertCommand.Parameters.Add(param);
-            //        break;
-            //    case Role.RoleType.Waiter:
-            //        param = new SqlParameter("@Tips", SqlDbType.Money, 8, "Tips");
-            //        dataAdapter.InsertCommand.Parameters.Add(param);
-
-            //        param = new SqlParameter("@DayRate", SqlDbType.Money, 8, "DayRate");
-            //        dataAdapter.InsertCommand.Parameters.Add(param);
-
-            //        param = new SqlParameter("@NoOfShifts", SqlDbType.SmallInt, 4, "NoOfShifts");
-            //        dataAdapter.InsertCommand.Parameters.Add(param);
-            //        break;
-            //    case Role.RoleType.Runner:
-            //        param = new SqlParameter("@DayRate", SqlDbType.Money, 8, "DayRate");
-            //        dataAdapter.InsertCommand.Parameters.Add(param);
-
-            //        param = new SqlParameter("@NoOfShifts", SqlDbType.SmallInt, 4, "NoOfShifts");
-            //        dataAdapter.InsertCommand.Parameters.Add(param);
-            //        break;
-            //}
-
         }
     private void Build_UPDATE_Parameters(Booking aBooking)
     {
@@ -274,43 +171,10 @@ namespace PhumlaKamnandi.Database
         param = new SqlParameter("@Price", SqlDbType.Int, 15, "Price");
         param.SourceVersion = DataRowVersion.Current;
         dataAdapter.UpdateCommand.Parameters.Add(param);
-            //switch (aBooking.role.getRoleValue)
-            //{
-            //    case Role.RoleType.Headwaiter:
-            //        param = new SqlParameter("@Salary", SqlDbType.Decimal, 2, "Salary");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
-            //        break;
+            
 
-            //    case Role.RoleType.Waiter:
-            //        param = new SqlParameter("@Shifts", SqlDbType.SmallInt, 4, "Shifts");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
 
-            //        param = new SqlParameter("@Rate", SqlDbType.Decimal, 2, "Rate");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
-
-            //        param = new SqlParameter("@Tips", SqlDbType.Decimal, 2, "Tips");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
-            //        break;
-
-            //    case Role.RoleType.Runner:
-            //        param = new SqlParameter("@Shifts", SqlDbType.SmallInt, 4, "Shifts");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
-
-            //        param = new SqlParameter("@Rate", SqlDbType.Decimal, 2, "Rate");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
-
-            //        param = new SqlParameter("@Tips", SqlDbType.Decimal, 2, "Tips");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
-            //        break;
-            //}
-            param = new SqlParameter("@Original_BookingID", SqlDbType.Int, 15, "BookingID");
+        param = new SqlParameter("@Original_BookingID", SqlDbType.Int, 15, "BookingID");
         param.SourceVersion = DataRowVersion.Original;
         dataAdapter.UpdateCommand.Parameters.Add(param);    
     }
@@ -325,21 +189,10 @@ namespace PhumlaKamnandi.Database
 
     private void Create_INSERT_Command(Booking aBooking)
     {
-            dataAdapter.InsertCommand = new SqlCommand(
-                "INSERT into Booking (BookingID, RoomID, CheckIn, CheckOut, Price) " +
-                "VALUES (@BookingID, @RoomEmpID, @CheckIn, @CheckOut, @Price)", sqlConnection);
-        //    switch (aBooking.role.getRoleValue)
-        //{
-        //    case Role.RoleType.Headwaiter:
-        //        dataAdapter.InsertCommand = new SqlCommand("INSERT into HeadWaiter (ID, EMPID, Name, Phone, Role, Salary) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @Salary)", sqlConnection);
-        //        break;
-        //    case Role.RoleType.Waiter:
-        //        dataAdapter.InsertCommand = new SqlCommand("INSERT into Waiter (ID, EMPID, Name, Phone, Role, Tips, DayRate, NoOfShifts) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @Tips, @DayRate, @NoOfShifts)", sqlConnection);
-        //        break;
-        //    case Role.RoleType.Runner:
-        //        dataAdapter.InsertCommand = new SqlCommand("INSERT into Runner (ID, EMPID, Name, Phone, Role, DayRate, NoOfShifts) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @DayRate, @NoOfShifts)", sqlConnection);
-        //        break;
-        //}
+        dataAdapter.InsertCommand = new SqlCommand(
+            "INSERT into Booking (BookingID, RoomID, CheckIn, CheckOut, Price) " +
+            "VALUES (@BookingID, @RoomEmpID, @CheckIn, @CheckOut, @Price)", sqlConnection);
+        
         Build_INSERT_Parameters(aBooking);
     }
     private void Create_DELETE_Command(Booking aBooking)
@@ -354,19 +207,7 @@ namespace PhumlaKamnandi.Database
         Create_INSERT_Command(aBooking);
         Create_UPDATE_Command(aBooking);
 
-            success = UpdateDataSource(sqlLocal1, table1); 
-        //switch (aBooking.role.getRoleValue)
-        //{
-        //    case Role.RoleType.Headwaiter:
-        //        success = UpdateDataSource(sqlLocal1, table1);
-        //        break;
-        //    case Role.RoleType.Waiter:
-        //        success = UpdateDataSource(sqlLocal2, table2);
-        //        break;
-        //    case Role.RoleType.Runner:
-        //        success = UpdateDataSource(sqlLocal3, table3);
-        //        break;
-        //}
+        success = UpdateDataSource(sqlLocal1, table1);        
         return success;
     }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,10 @@ namespace PhumlaKamnandi.Business
             this.bookings = bookings;
         }
 
+        public Guest(string pName, string address) : base(pName, address) // double check if this constructor is correct
+        {
+            
+        }
 
     }
 }

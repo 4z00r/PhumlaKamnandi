@@ -13,12 +13,9 @@ namespace PhumlaKamnandi.Database
     public class RoomDB : DB
     {
         #region  Data members        
-        private string table1 = "Room";
+        private string table2 = "Room";
         private string sqlLocal1 = "SELECT * FROM Room";
-        //private string table2 = "Waiter";
-        //private string sqlLocal2 = "SELECT * FROM Waiter";
-        //private string table3 = "Runner";
-        //private string sqlLocal3 = "SELECT * FROM Runner";
+        
         private Collection<Room> Rooms;
 
         #endregion
@@ -37,12 +34,9 @@ namespace PhumlaKamnandi.Database
         public RoomDB() : base()
         {
             Rooms = new Collection<Room>();
-            FillDataSet(sqlLocal1, table1);
-            Add2Collection(table1);
-            //FillDataSet(sqlLocal2, table2);
-            //Add2Collection(table2);
-            //FillDataSet(sqlLocal3, table3);
-            //Add2Collection(table3);
+            FillDataSet(sqlLocal1, table2);
+            Add2Collection(table2);
+            
         }
         #endregion
 
@@ -56,23 +50,7 @@ namespace PhumlaKamnandi.Database
 
             DataRow myRow = null;
             Room aRoom;
-            //Room aRoom;
-            //HeadWaiter headw;
-            //Waiter waiter;
-            //Runner runner;
-            //Role.RoleType roleValue = Role.RoleType.NoRole;
-            //switch (table)
-            //{
-            //    case "HeadWaiter":
-            //        roleValue = Role.RoleType.Headwaiter;
-            //        break;
-            //    case "Waiter":
-            //        roleValue = Role.RoleType.Waiter;
-            //        break;
-            //    case "Runner":
-            //        roleValue = Role.RoleType.Runner;
-            //        break;
-            //}
+            
 
             foreach (DataRow myRow_loopVariable in dataSet.Tables[table].Rows)
             {
@@ -81,29 +59,6 @@ namespace PhumlaKamnandi.Database
                 {
                     aRoom = new Room( Convert.ToInt32(myRow["RoomID"]), Convert.ToInt32(myRow["numOccupants"]) );
                 
-                    //    aRoom.Name = Convert.ToString(myRow["Name"]).TrimEnd();
-                    //aRoom.Telephone = Convert.ToString(myRow["Phone"]).TrimEnd();
-                    //aRoom.role.getRoleValue = (Role.RoleType)Convert.ToByte(myRow["Role"]);
-
-                    //switch (aRoom.role.getRoleValue)
-                    //{
-                    //    case Role.RoleType.Headwaiter:
-                    //        headw = (HeadWaiter)aRoom.role;
-                    //        headw.SalaryAmount = Convert.ToDecimal(myRow["Salary"]);
-                    //        break;
-                    //    case Role.RoleType.Waiter:
-                    //        waiter = (Waiter)aRoom.role;
-                    //        waiter.getRate = Convert.ToDecimal(myRow["DayRate"]);
-                    //        waiter.getShifts = Convert.ToInt32(myRow["NoOfShifts"]);
-                    //        waiter.getTips = Convert.ToDecimal(myRow["Tips"]);
-                    //        break;
-                    //    case Role.RoleType.Runner:
-                    //        runner = (Runner)aRoom.role;
-                    //        runner.getRate = Convert.ToDecimal(myRow["DayRate"]);
-                    //        runner.getShifts = Convert.ToInt32(myRow["NoOfShifts"]);
-                    //        runner.getTips = Convert.ToDecimal(myRow["Tips"]);
-                    //        break;
-                    //}
                     Rooms.Add(aRoom);
                 }
             }
@@ -120,27 +75,6 @@ namespace PhumlaKamnandi.Database
             }
             aRow["numOccupants"] = aRoom.NumOfOccupants;
           
-            //aRow["Role"] = (byte)aRoom.role.getRoleValue;
-
-            //switch (aRoom.role.getRoleValue)
-            //{
-            //    case Role.RoleType.Headwaiter:
-            //        headwaiter = (HeadWaiter)aRoom.role;
-            //        aRow["Salary"] = headwaiter.SalaryAmount;
-            //        break;
-            //    case Role.RoleType.Waiter:
-            //        waiter = (Waiter)aRoom.role;
-            //        aRow["DayRate"] = waiter.getRate;
-            //        aRow["NoOfShifts"] = waiter.getShifts;
-            //        aRow["Tips"] = waiter.getTips;
-            //        break;
-            //    case Role.RoleType.Runner:
-            //        runner = (Runner)aRoom.role;
-            //        aRow["DayRate"] = runner.getRate;
-            //        aRow["NoOfShifts"] = runner.getShifts;
-            //        aRow["Tips"] = runner.getTips;
-            //        break;
-            //}
         }
         private int FindRow(Room aRoom, string table)
         {
@@ -169,20 +103,8 @@ namespace PhumlaKamnandi.Database
         public void DataSetChange(Room aRoom, DB.DBOperation operation)
         {
             DataRow aRow = null;
-            string dataTable = table1;
+            string dataTable = table2;
 
-            //switch (aRoom.role.getRoleValue)
-            //{
-            //    case Role.RoleType.Headwaiter:
-            //        dataTable = table1;
-            //        break;
-            //    case Role.RoleType.Waiter:
-            //        dataTable = table2;
-            //        break;
-            //    case Role.RoleType.Runner:
-            //        dataTable = table3;
-            //        break;
-            //}
             switch (operation)
             {
                 case DB.DBOperation.Add:
@@ -215,31 +137,6 @@ namespace PhumlaKamnandi.Database
             param = new SqlParameter("@numOccupants", SqlDbType.Int, 15, "numOccupants");
             dataAdapter.InsertCommand.Parameters.Add(param);
 
-            //switch (aRoom.role.getRoleValue)
-            //{
-            //    case Role.RoleType.Headwaiter:
-            //        param = new SqlParameter("@Salary", SqlDbType.Money, 8, "Salary");
-            //        dataAdapter.InsertCommand.Parameters.Add(param);
-            //        break;
-            //    case Role.RoleType.Waiter:
-            //        param = new SqlParameter("@Tips", SqlDbType.Money, 8, "Tips");
-            //        dataAdapter.InsertCommand.Parameters.Add(param);
-
-            //        param = new SqlParameter("@DayRate", SqlDbType.Money, 8, "DayRate");
-            //        dataAdapter.InsertCommand.Parameters.Add(param);
-
-            //        param = new SqlParameter("@NoOfShifts", SqlDbType.SmallInt, 4, "NoOfShifts");
-            //        dataAdapter.InsertCommand.Parameters.Add(param);
-            //        break;
-            //    case Role.RoleType.Runner:
-            //        param = new SqlParameter("@DayRate", SqlDbType.Money, 8, "DayRate");
-            //        dataAdapter.InsertCommand.Parameters.Add(param);
-
-            //        param = new SqlParameter("@NoOfShifts", SqlDbType.SmallInt, 4, "NoOfShifts");
-            //        dataAdapter.InsertCommand.Parameters.Add(param);
-            //        break;
-            //}
-
         }
         private void Build_UPDATE_Parameters(Room aRoom)
         {
@@ -251,42 +148,6 @@ namespace PhumlaKamnandi.Database
             param.SourceVersion = DataRowVersion.Current;
             dataAdapter.UpdateCommand.Parameters.Add(param);
 
-            //switch (aRoom.role.getRoleValue)
-            //{
-            //    case Role.RoleType.Headwaiter:
-            //        param = new SqlParameter("@Salary", SqlDbType.Decimal, 2, "Salary");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
-            //        break;
-
-            //    case Role.RoleType.Waiter:
-            //        param = new SqlParameter("@Shifts", SqlDbType.SmallInt, 4, "Shifts");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
-
-            //        param = new SqlParameter("@Rate", SqlDbType.Decimal, 2, "Rate");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
-
-            //        param = new SqlParameter("@Tips", SqlDbType.Decimal, 2, "Tips");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
-            //        break;
-
-            //    case Role.RoleType.Runner:
-            //        param = new SqlParameter("@Shifts", SqlDbType.SmallInt, 4, "Shifts");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
-
-            //        param = new SqlParameter("@Rate", SqlDbType.Decimal, 2, "Rate");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
-
-            //        param = new SqlParameter("@Tips", SqlDbType.Decimal, 2, "Tips");
-            //        param.SourceVersion = DataRowVersion.Current;
-            //        dataAdapter.UpdateCommand.Parameters.Add(param);
-            //        break;
-            //}
             param = new SqlParameter("@Original_RoomID", SqlDbType.Int, 15, "RoomID");
             param.SourceVersion = DataRowVersion.Original;
             dataAdapter.UpdateCommand.Parameters.Add(param);
@@ -296,27 +157,8 @@ namespace PhumlaKamnandi.Database
             dataAdapter.UpdateCommand = new SqlCommand(
                 "UPDATE Room SET numOccupants = @numOccupants" +
                 "WHERE RoomID = @Original_RoomID ", sqlConnection); // unsure if i add original_room id as well ?  
-                                                                          //switch (aRoom.role.getRoleValue)
-                                                                          //{
-                                                                          //    case Role.RoleType.Headwaiter:
-                                                                          //        dataAdapter.UpdateCommand = new SqlCommand(
-                                                                          //            "UPDATE HeadWaiter SET Name = @Name, Phone = @Phone, Role = @Role, Salary = @Salary " +
-                                                                          //            "WHERE ID = @Original_ID", sqlConnection);
-                                                                          //        break;
 
-            //    case Role.RoleType.Waiter:
-            //        dataAdapter.UpdateCommand = new SqlCommand(
-            //            "UPDATE Waiter SET Name = @Name, Phone = @Phone, Role = @Role, Rate = @Rate , Shifts = @Shifts, Tips = @Tips" +
-            //            "WHERE ID = @Original_ID", sqlConnection);
-            //        break;
 
-            //    case Role.RoleType.Runner:
-
-            //        dataAdapter.UpdateCommand = new SqlCommand(
-            //            "UPDATE Runner SET Name = @Name, Phone = @Phone, Role = @Role, Rate = @Rate , Shifts = @Shifts, Tips = @Tips  " +
-            //            "WHERE ID = @Original_ID", sqlConnection);
-            //        break;
-            //}
             Build_UPDATE_Parameters(aRoom);
         }
 
@@ -325,18 +167,7 @@ namespace PhumlaKamnandi.Database
             dataAdapter.InsertCommand = new SqlCommand(
                 "INSERT into Room (RoomID, numOccupants) " +
                 "VALUES (@RoomID, @numOccupants)", sqlConnection);
-            //    switch (aRoom.role.getRoleValue)
-            //{
-            //    case Role.RoleType.Headwaiter:
-            //        dataAdapter.InsertCommand = new SqlCommand("INSERT into HeadWaiter (ID, EMPID, Name, Phone, Role, Salary) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @Salary)", sqlConnection);
-            //        break;
-            //    case Role.RoleType.Waiter:
-            //        dataAdapter.InsertCommand = new SqlCommand("INSERT into Waiter (ID, EMPID, Name, Phone, Role, Tips, DayRate, NoOfShifts) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @Tips, @DayRate, @NoOfShifts)", sqlConnection);
-            //        break;
-            //    case Role.RoleType.Runner:
-            //        dataAdapter.InsertCommand = new SqlCommand("INSERT into Runner (ID, EMPID, Name, Phone, Role, DayRate, NoOfShifts) VALUES (@ID, @EmpID, @Name, @Phone, @Role, @DayRate, @NoOfShifts)", sqlConnection);
-            //        break;
-            //}
+          
             Build_INSERT_Parameters(aRoom);
         }
         private void Create_DELETE_Command(Room aRoom)
@@ -351,19 +182,8 @@ namespace PhumlaKamnandi.Database
             Create_INSERT_Command(aRoom);
             Create_UPDATE_Command(aRoom);
 
-            success = UpdateDataSource(sqlLocal1, table1);
-            //switch (aRoom.role.getRoleValue)
-            //{
-            //    case Role.RoleType.Headwaiter:
-            //        success = UpdateDataSource(sqlLocal1, table1);
-            //        break;
-            //    case Role.RoleType.Waiter:
-            //        success = UpdateDataSource(sqlLocal2, table2);
-            //        break;
-            //    case Role.RoleType.Runner:
-            //        success = UpdateDataSource(sqlLocal3, table3);
-            //        break;
-            //}
+            success = UpdateDataSource(sqlLocal1, table2);
+            
             return success;
         }
 
