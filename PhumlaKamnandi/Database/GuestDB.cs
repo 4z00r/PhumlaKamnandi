@@ -16,16 +16,16 @@ namespace PhumlaKamnandi.Database
         #region  Data members        
         private string table3 = "Guest";
         private string sqlLocal1 = "SELECT * FROM Guest";
-        private Collection<Guest> guests;
+        private Collection<Guest> allGuests;
 
         #endregion
 
         #region Property Method: Collection
-        public Collection<Guest> AllBookings
+        public Collection<Guest> AllGuests
         {
             get
             {
-                return guests;
+                return allGuests;
             }
         }
         #endregion
@@ -33,7 +33,7 @@ namespace PhumlaKamnandi.Database
         #region Constructor
         public GuestDB() : base()
         {
-            guests = new Collection<Guest>();
+            allGuests = new Collection<Guest>();
             FillDataSet(sqlLocal1, table3);
             Add2Collection(table3);
 
@@ -62,7 +62,7 @@ namespace PhumlaKamnandi.Database
                     aGuest.Address = Convert.ToString(myRow["Address"]);
                     aGuest.Telephone = Convert.ToString(myRow["Telephone"]);
 
-                    guests.Add(aGuest);
+                    AllGuests.Add(aGuest);
                 }
             }
         }
