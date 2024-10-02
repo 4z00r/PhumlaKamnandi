@@ -69,6 +69,7 @@ namespace PhumlaKamnandi.Business
 
 
         #region Search Methods
+
         public Collection<Booking> FindByRoom(Collection<Booking> bookings, Room room)
         {
             Collection<Booking> found = new Collection<Booking>();

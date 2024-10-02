@@ -50,13 +50,6 @@ namespace PhumlaKamnandi.Business
             get { return price; }
             set { price = value; }
         }
-        public int getTotalPrice()
-        {
-            int days = dates.numDays();
-            int total = Pricing.Cost * days;
-            return total;
-        }
-
 
     }
 }

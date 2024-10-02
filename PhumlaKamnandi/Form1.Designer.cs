@@ -77,7 +77,7 @@
             // ReportButton
             // 
             this.ReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReportButton.Location = new System.Drawing.Point(602, 239);
+            this.ReportButton.Location = new System.Drawing.Point(137, 136);
             this.ReportButton.Name = "ReportButton";
             this.ReportButton.Size = new System.Drawing.Size(169, 38);
             this.ReportButton.TabIndex = 5;
@@ -117,6 +117,7 @@
             this.makeBookingBtn.TabIndex = 11;
             this.makeBookingBtn.Text = "Make Booking";
             this.makeBookingBtn.UseVisualStyleBackColor = true;
+            this.makeBookingBtn.Click += new System.EventHandler(this.makeBookingBtn_Click);
             // 
             // changeBookingBtn
             // 

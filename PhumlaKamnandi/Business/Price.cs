@@ -11,34 +11,40 @@ namespace PhumlaKamnandi.Business
      */
     public class Price
     {
+        private float total;
         private Period date;
-        private int numBeds;
-        private float discount;
-        private int cost;
+        private float seasonCost;
 
         public Price() { }
-        public Price(int cost, Period date) { this.cost = cost; this.date = date; }
-        public float determinePrice()
+        public Price(Period date) 
+        { 
+            this.date = date; 
+            determineSeasonPrice();
+            this.total = seasonCost * date.numDays();
+        }
+
+        public Price(int total, Period date) { this.total = total; this.date = date; }
+
+        public void determineSeasonPrice()
         {
             Period.Season season = date.DetermineSeason();
             switch (season)
             {
                 case Period.Season.offSeason:
-                    cost = 550;
+                    seasonCost = 550;
                     break;
                 case Period.Season.midSeason:
-                    cost = 750;
+                    seasonCost = 750;
                     break;
                 case Period.Season.peakSeason:
-                    cost = 995;
+                    seasonCost = 995;
                     break;
             }
-            return cost;
         }
-        public int Cost
+        public int Total
         {
-            get { return cost; }
-            set { cost = value; }
+            get { return total; }
+            set { total = value; }
         }
     }
 }

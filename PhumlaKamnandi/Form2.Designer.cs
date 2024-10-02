@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.ExitButton = new System.Windows.Forms.Button();
-            this.ReserveButton = new System.Windows.Forms.Button();
+            this.checkBtn = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.CheckOutDate = new System.Windows.Forms.DateTimePicker();
             this.CheckInDate = new System.Windows.Forms.DateTimePicker();
-            this.Above5Box = new System.Windows.Forms.TextBox();
+            this.numBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,16 +50,16 @@
             this.ExitButton.UseVisualStyleBackColor = true;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // ReserveButton
+            // checkBtn
             // 
-            this.ReserveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReserveButton.Location = new System.Drawing.Point(665, 500);
-            this.ReserveButton.Name = "ReserveButton";
-            this.ReserveButton.Size = new System.Drawing.Size(122, 62);
-            this.ReserveButton.TabIndex = 60;
-            this.ReserveButton.Text = "Check Availbility";
-            this.ReserveButton.UseVisualStyleBackColor = true;
-            this.ReserveButton.Click += new System.EventHandler(this.ReserveButton_Click);
+            this.checkBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBtn.Location = new System.Drawing.Point(665, 500);
+            this.checkBtn.Name = "checkBtn";
+            this.checkBtn.Size = new System.Drawing.Size(122, 62);
+            this.checkBtn.TabIndex = 60;
+            this.checkBtn.Text = "Check Availbility";
+            this.checkBtn.UseVisualStyleBackColor = true;
+            this.checkBtn.Click += new System.EventHandler(this.ReserveButton_Click);
             // 
             // CancelButton
             // 
@@ -90,14 +90,14 @@
             this.CheckInDate.TabIndex = 56;
             this.CheckInDate.ValueChanged += new System.EventHandler(this.CheckInDate_ValueChanged);
             // 
-            // Above5Box
+            // numBox
             // 
-            this.Above5Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Above5Box.Location = new System.Drawing.Point(347, 246);
-            this.Above5Box.Name = "Above5Box";
-            this.Above5Box.Size = new System.Drawing.Size(64, 29);
-            this.Above5Box.TabIndex = 55;
-            this.Above5Box.TextChanged += new System.EventHandler(this.Above5Box_TextChanged);
+            this.numBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numBox.Location = new System.Drawing.Point(347, 246);
+            this.numBox.Name = "numBox";
+            this.numBox.Size = new System.Drawing.Size(64, 29);
+            this.numBox.TabIndex = 55;
+            this.numBox.TextChanged += new System.EventHandler(this.Above5Box_TextChanged);
             // 
             // label13
             // 
@@ -136,11 +136,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1203, 610);
             this.Controls.Add(this.ExitButton);
-            this.Controls.Add(this.ReserveButton);
+            this.Controls.Add(this.checkBtn);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.CheckOutDate);
             this.Controls.Add(this.CheckInDate);
-            this.Controls.Add(this.Above5Box);
+            this.Controls.Add(this.numBox);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label4);
@@ -153,11 +153,11 @@
 
         #endregion
         private System.Windows.Forms.Button ExitButton;
-        private System.Windows.Forms.Button ReserveButton;
+        private System.Windows.Forms.Button checkBtn;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.DateTimePicker CheckOutDate;
         private System.Windows.Forms.DateTimePicker CheckInDate;
-        private System.Windows.Forms.TextBox Above5Box;
+        private System.Windows.Forms.TextBox numBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label4;

@@ -24,36 +24,29 @@ namespace PhumlaKamnandi
 
         private void CheckInButton_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
-
-            form3.Show();
-
-            this.Hide();
+            
         }
 
         private void CheckOutButton_Click(object sender, EventArgs e)
         {
-            Form4 form4 = new Form4();
-
-            form4.Show();
-
-            this.Hide();
+            
         }
 
         private void ReservationButton_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
-
-            form2.Show();
-
-            this.Hide();
+            
         }
 
         private void ReportButton_Click(object sender, EventArgs e)
         {
-            Form5 form5 = new Form5();
+            
+        }
 
-            form5.Show();
+        private void makeBookingBtn_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+
+            form2.Show();
 
             this.Hide();
         }

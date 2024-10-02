@@ -89,6 +89,10 @@ namespace PhumlaKamnandi
 
         private void ReserveButton_Click(object sender, EventArgs e)
         {
+            int numOccupants = Convert.ToInt32(numBox.Text);
+            DateTime checkIn = CheckInDate.Value;
+            DateTime checkOut = CheckOutDate.Value;
+
 
         }
 

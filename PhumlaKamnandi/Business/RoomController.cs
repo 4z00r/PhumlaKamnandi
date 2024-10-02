@@ -69,6 +69,30 @@ namespace PhumlaKamnandi.Business
 
 
         #region Search Methods
+        public Room FindRoomByFreePeriod(Collection<Booking> bookings, Collection<Room> rooms, Period period)
+        {
+            Collection<Room> copyRooms = new Collection<Room>(rooms); // copy of list
+
+            foreach (Booking booking in bookings)
+            {
+                Period otherPeriod = booking.Dates;
+
+                if (period.Overlap(otherPeriod) == true)
+                {
+                    copyRooms.Remove(booking.Room);
+                }
+
+            }
+
+            if (copyRooms.Count < 1)
+            {
+                return null;
+            }
+            else
+            {
+                return copyRooms.First();
+            }
+        }
 
         public Room Find(int ID)
         {
