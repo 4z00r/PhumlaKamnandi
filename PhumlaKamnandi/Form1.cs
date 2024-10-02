@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhumlaKamnandi.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,11 @@ namespace PhumlaKamnandi
 {
     public partial class Form1 : Form
     {
+        public Hotel hotel;
         public Form1()
         {
+            this.hotel = new Hotel(1, 5);
+
             InitializeComponent();
         }
 
@@ -44,7 +48,7 @@ namespace PhumlaKamnandi
 
         private void makeBookingBtn_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            Form2 form2 = new Form2(hotel);
 
             form2.Show();
 

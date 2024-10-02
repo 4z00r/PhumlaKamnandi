@@ -41,7 +41,7 @@ namespace PhumlaKamnandi.Business
                     break;
             }
         }
-        public int Total
+        public float Total
         {
             get { return total; }
             set { total = value; }

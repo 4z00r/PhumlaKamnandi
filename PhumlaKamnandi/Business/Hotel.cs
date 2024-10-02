@@ -37,17 +37,20 @@ namespace PhumlaKamnandi.Business
             //checking
 
             Period period = new Period(checkInDate, checkOutDate);
-            Booking newBooking = new Booking( 
-              numOccupants, 
-              new Room(-1, numOccupants), 
-              period, 
-              new Price(period));
+           
 
             Room freeRoom = roomController.FindRoomByFreePeriod(
                 bookingController.AllBookings,
                 roomController.AllRooms,
                 period);
 
+            Booking newBooking = new Booking(
+             100,
+             freeRoom,
+             period,
+             new Price(period));
+
+            return newBooking;
         }
         #endregion
     }

@@ -64,6 +64,15 @@ namespace PhumlaKamnandi.Database
                 //dataSet.Clear();
                 dataAdapter.Fill(dataSet, aTable);
                 sqlConnection.Close();
+
+                if (dataSet.Tables.Contains(aTable))
+                {
+                    MessageBox.Show($"Table '{aTable}' found in dataset.");
+                }
+                else
+                {
+                    MessageBox.Show($"Table '{aTable}' is not found in dataset.");
+                }
             }
             catch (Exception errObj)
             {

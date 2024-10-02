@@ -57,7 +57,7 @@ namespace PhumlaKamnandi.Database
                 myRow = myRow_loopVariable;
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
-                    aRoom = new Room( Convert.ToInt32(myRow["RoomID"]), Convert.ToInt32(myRow["numOccupants"]) );
+                    aRoom = new Room( Convert.ToInt32(myRow["RoomID"]) );
                 
                     Rooms.Add(aRoom);
                 }
@@ -73,7 +73,6 @@ namespace PhumlaKamnandi.Database
                 aRow["RoomID"] = aRoom.RoomID;
 
             }
-            aRow["numOccupants"] = aRoom.NumOfOccupants;
           
         }
         private int FindRow(Room aRoom, string table)
@@ -134,8 +133,8 @@ namespace PhumlaKamnandi.Database
             param = new SqlParameter("@RoomID", SqlDbType.Int, 15, "RoomID");
             dataAdapter.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@numOccupants", SqlDbType.Int, 15, "numOccupants");
-            dataAdapter.InsertCommand.Parameters.Add(param);
+            //param = new SqlParameter("@numOccupants", SqlDbType.Int, 15, "numOccupants");
+            //dataAdapter.InsertCommand.Parameters.Add(param);
 
         }
         private void Build_UPDATE_Parameters(Room aRoom)
@@ -144,9 +143,9 @@ namespace PhumlaKamnandi.Database
              * method to update check in/out dates - keeps Room id the same
              */
             SqlParameter param = default(SqlParameter);
-            param = new SqlParameter("@numOccupants", SqlDbType.Int, 15, "numOccupants");
-            param.SourceVersion = DataRowVersion.Current;
-            dataAdapter.UpdateCommand.Parameters.Add(param);
+            //param = new SqlParameter("@numOccupants", SqlDbType.Int, 15, "numOccupants");
+            //param.SourceVersion = DataRowVersion.Current;
+            //dataAdapter.UpdateCommand.Parameters.Add(param);
 
             param = new SqlParameter("@Original_RoomID", SqlDbType.Int, 15, "RoomID");
             param.SourceVersion = DataRowVersion.Original;
@@ -154,19 +153,19 @@ namespace PhumlaKamnandi.Database
         }
         private void Create_UPDATE_Command(Room aRoom)
         {
-            dataAdapter.UpdateCommand = new SqlCommand(
-                "UPDATE Room SET numOccupants = @numOccupants" +
-                "WHERE RoomID = @Original_RoomID ", sqlConnection); // unsure if i add original_room id as well ?  
+            //dataAdapter.UpdateCommand = new SqlCommand(
+            //    "UPDATE Room SET numOccupants = @numOccupants" +
+            //    "WHERE RoomID = @Original_RoomID ", sqlConnection); // unsure if i add original_room id as well ?  
 
-
+            dataAdapter.UpdateCommand = new SqlCommand("", sqlConnection);
             Build_UPDATE_Parameters(aRoom);
         }
 
         private void Create_INSERT_Command(Room aRoom)
         {
             dataAdapter.InsertCommand = new SqlCommand(
-                "INSERT into Room (RoomID, numOccupants) " +
-                "VALUES (@RoomID, @numOccupants)", sqlConnection);
+                "INSERT into Room (RoomID) " +
+                "VALUES (@RoomID)", sqlConnection);
           
             Build_INSERT_Parameters(aRoom);
         }

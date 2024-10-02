@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhumlaKamnandi.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,11 @@ namespace PhumlaKamnandi
 {
     public partial class Form3 : Form
     {
-        public Form3()
+        public Hotel hotel;
+        public Form3(Hotel hotel)
         {
+            this.hotel = hotel;
+       
             InitializeComponent();
         }
 

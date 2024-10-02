@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -49,6 +50,11 @@ namespace PhumlaKamnandi.Business
         {
             get { return price; }
             set { price = value; }
+        }
+
+        public override string ToString()
+        {
+            return $"Booking: {Room.RoomID} {this.BookingID} ";
         }
 
     }

@@ -40,22 +40,23 @@ namespace PhumlaKamnandi.Business
             this.checkIn = checkIn;
             this.checkOut = checkOut;
 
-            //this.season; 
+            this.season = DetermineSeason(); 
         }
 
         public bool Overlap(Period other)
         {
 
-            if (DateTime.Compare(CheckOut, other.CheckIn) <= 0)
+            bool result = true;
+
+            if (CheckOut.CompareTo(other.CheckIn) <= 0 || CheckIn.CompareTo(other.CheckOut) >= 0)
             {
-                return false;
-            }
-            if (DateTime.Compare(CheckIn, other.CheckOut) >= 0)
+                result = false;
+            }else
             {
-                return false;
+                result = true;
             }
 
-            return true;
+            return result;
 
         }
 

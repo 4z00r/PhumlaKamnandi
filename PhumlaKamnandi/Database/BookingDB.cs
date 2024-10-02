@@ -55,7 +55,7 @@ namespace PhumlaKamnandi.Database
             myRow = myRow_loopVariable;
             if (!(myRow.RowState == DataRowState.Deleted))
             {
-                aBooking = new Booking(new Room(-1, -1));
+                aBooking = new Booking(new Room(-1));
                 aBooking.BookingID = Convert.ToInt32(myRow["BookingID"]);
                 aBooking.Room.RoomID = Convert.ToInt32(myRow["RoomID"]);
                 aBooking.Dates = new Period( Convert.ToDateTime(myRow["CheckIn"]), Convert.ToDateTime(myRow["CheckOut"]) );

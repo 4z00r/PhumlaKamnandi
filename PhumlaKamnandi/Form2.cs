@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhumlaKamnandi.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace PhumlaKamnandi
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        public Hotel hotel;
+        public Form2(Hotel hotel)
         {
+            this.hotel = hotel;
             InitializeComponent();
         }
 
@@ -93,21 +96,27 @@ namespace PhumlaKamnandi
             DateTime checkIn = CheckInDate.Value;
             DateTime checkOut = CheckOutDate.Value;
 
+            MessageBox.Show(hotel.CheckAvailability(numOccupants, checkIn, checkOut).ToString());
 
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ExitButton_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
 
             form1.Show();
 
             this.Hide();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -48,7 +48,7 @@ namespace PhumlaKamnandi.Business
                     break;
                 case DB.DBOperation.Edit:
                     roomDB.DataSetChange(aBook, op);
-                    int index = FindIndex(aBook);
+                    int index = FindIndex(AllRooms, aBook);
                     Rooms[index] = aBook;
                     break;
                 case DB.DBOperation.Delete:
@@ -79,7 +79,9 @@ namespace PhumlaKamnandi.Business
 
                 if (period.Overlap(otherPeriod) == true)
                 {
-                    copyRooms.Remove(booking.Room);
+                    int rRoom = FindIndex(copyRooms, booking.Room);
+                    copyRooms.RemoveAt(rRoom);
+                    //copyRooms.Remove(booking.Room);
                 }
 
             }
@@ -109,15 +111,14 @@ namespace PhumlaKamnandi.Business
             return Rooms[index];
         }
 
-        public int FindIndex(Room book)
+        public int FindIndex(Collection<Room> fRooms, Room room)
         {
             int counter = 0;
-            bool found = false;
-            found = (book.RoomID == Rooms[counter].RoomID);
-            while (!found && counter < Rooms.Count - 1)
+            bool found = (room.RoomID == fRooms[counter].RoomID);
+            while (!found && counter < fRooms.Count - 1)
             {
                 counter++;
-                found = (book.RoomID == Rooms[counter].RoomID);
+                found = (room.RoomID == fRooms[counter].RoomID);
             }
             if (found)
             {

@@ -12,21 +12,11 @@ namespace PhumlaKamnandi.Business
     public class Room
     {
         private int roomID;
-        private int numOfOccupants;
-        private bool availability;
 
-        public Room(int ID, int numOfOccupants)
+        public Room(int ID)
         {
             this.roomID = ID;
-            this.numOfOccupants = numOfOccupants;
-            if (numOfOccupants > 0)
-            {
-                availability = false;
-            }
-            else
-            {
-                availability = true;
-            }
+            
 
         }
 
@@ -35,16 +25,7 @@ namespace PhumlaKamnandi.Business
             get { return roomID; }
             set { roomID = value; }
         }
-        public int NumOfOccupants
-        {
-            get { return numOfOccupants; }
-            set {  numOfOccupants = value; }
-        }
-        public bool Availability
-        {
-            get { return availability; }
-            set { availability = value; }
-        }
+        
 
     }
 }

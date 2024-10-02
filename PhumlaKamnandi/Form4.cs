@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhumlaKamnandi.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace PhumlaKamnandi
 {
     public partial class Form4 : Form
     {
-        public Form4()
+        public Hotel hotel;
+        public Form4(Hotel hotel)
         {
+            this.hotel = hotel;
             InitializeComponent();
         }
 
@@ -77,6 +80,11 @@ namespace PhumlaKamnandi
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form4_Load(object sender, EventArgs e)
         {
 
         }
