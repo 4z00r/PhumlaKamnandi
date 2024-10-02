@@ -45,7 +45,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(460, 45);
+            this.label1.Location = new System.Drawing.Point(347, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(227, 42);
             this.label1.TabIndex = 2;
@@ -56,7 +56,7 @@
             this.Welcome.AutoSize = true;
             this.Welcome.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Welcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Welcome.Location = new System.Drawing.Point(256, 79);
+            this.Welcome.Location = new System.Drawing.Point(80, 64);
             this.Welcome.Name = "Welcome";
             this.Welcome.Size = new System.Drawing.Size(756, 73);
             this.Welcome.TabIndex = 3;
@@ -66,7 +66,7 @@
             // 
             this.ReservationButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ReservationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReservationButton.Location = new System.Drawing.Point(39, 79);
+            this.ReservationButton.Location = new System.Drawing.Point(31, 215);
             this.ReservationButton.Name = "ReservationButton";
             this.ReservationButton.Size = new System.Drawing.Size(169, 38);
             this.ReservationButton.TabIndex = 4;
@@ -77,7 +77,7 @@
             // ReportButton
             // 
             this.ReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReportButton.Location = new System.Drawing.Point(137, 136);
+            this.ReportButton.Location = new System.Drawing.Point(263, 215);
             this.ReportButton.Name = "ReportButton";
             this.ReportButton.Size = new System.Drawing.Size(169, 38);
             this.ReportButton.TabIndex = 5;
@@ -89,7 +89,7 @@
             // 
             this.CheckInButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.CheckInButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckInButton.Location = new System.Drawing.Point(39, 92);
+            this.CheckInButton.Location = new System.Drawing.Point(488, 215);
             this.CheckInButton.Name = "CheckInButton";
             this.CheckInButton.Size = new System.Drawing.Size(169, 38);
             this.CheckInButton.TabIndex = 6;
@@ -101,7 +101,7 @@
             // 
             this.CheckOutButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.CheckOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckOutButton.Location = new System.Drawing.Point(81, 114);
+            this.CheckOutButton.Location = new System.Drawing.Point(719, 215);
             this.CheckOutButton.Name = "CheckOutButton";
             this.CheckOutButton.Size = new System.Drawing.Size(169, 38);
             this.CheckOutButton.TabIndex = 10;
@@ -111,9 +111,10 @@
             // 
             // makeBookingBtn
             // 
-            this.makeBookingBtn.Location = new System.Drawing.Point(400, 254);
+            this.makeBookingBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.makeBookingBtn.Location = new System.Drawing.Point(488, 383);
             this.makeBookingBtn.Name = "makeBookingBtn";
-            this.makeBookingBtn.Size = new System.Drawing.Size(113, 23);
+            this.makeBookingBtn.Size = new System.Drawing.Size(143, 38);
             this.makeBookingBtn.TabIndex = 11;
             this.makeBookingBtn.Text = "Make Booking";
             this.makeBookingBtn.UseVisualStyleBackColor = true;
@@ -121,27 +122,30 @@
             // 
             // changeBookingBtn
             // 
-            this.changeBookingBtn.Location = new System.Drawing.Point(400, 341);
+            this.changeBookingBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeBookingBtn.Location = new System.Drawing.Point(93, 384);
             this.changeBookingBtn.Name = "changeBookingBtn";
-            this.changeBookingBtn.Size = new System.Drawing.Size(87, 34);
+            this.changeBookingBtn.Size = new System.Drawing.Size(124, 37);
             this.changeBookingBtn.TabIndex = 12;
             this.changeBookingBtn.Text = "Change Booking";
             this.changeBookingBtn.UseVisualStyleBackColor = true;
             // 
             // cancelBookingBtn
             // 
-            this.cancelBookingBtn.Location = new System.Drawing.Point(544, 341);
+            this.cancelBookingBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelBookingBtn.Location = new System.Drawing.Point(284, 384);
             this.cancelBookingBtn.Name = "cancelBookingBtn";
-            this.cancelBookingBtn.Size = new System.Drawing.Size(113, 34);
+            this.cancelBookingBtn.Size = new System.Drawing.Size(125, 37);
             this.cancelBookingBtn.TabIndex = 13;
             this.cancelBookingBtn.Text = "Cancel Booking";
             this.cancelBookingBtn.UseVisualStyleBackColor = true;
             // 
             // enquireBtn
             // 
-            this.enquireBtn.Location = new System.Drawing.Point(710, 322);
+            this.enquireBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enquireBtn.Location = new System.Drawing.Point(691, 383);
             this.enquireBtn.Name = "enquireBtn";
-            this.enquireBtn.Size = new System.Drawing.Size(137, 42);
+            this.enquireBtn.Size = new System.Drawing.Size(130, 38);
             this.enquireBtn.TabIndex = 14;
             this.enquireBtn.Text = "Enquire Booking";
             this.enquireBtn.UseVisualStyleBackColor = true;
@@ -150,7 +154,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1162, 622);
+            this.BackgroundImage = global::PhumlaKamnandi.Properties.Resources.manuel_moreno_DGa0LQ0yDPc_unsplash;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(936, 479);
             this.Controls.Add(this.enquireBtn);
             this.Controls.Add(this.cancelBookingBtn);
             this.Controls.Add(this.changeBookingBtn);
