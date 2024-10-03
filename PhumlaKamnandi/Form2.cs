@@ -14,9 +14,13 @@ namespace PhumlaKamnandi
     public partial class Form2 : Form
     {
         public Hotel hotel;
-        public Form2(Hotel hotel)
+        public Form1 form1;
+        public Form2(Hotel hotel, Form1 form1)
         {
             this.hotel = hotel;
+
+            this.form1 = form1;
+
             InitializeComponent();
         }
 
@@ -96,22 +100,33 @@ namespace PhumlaKamnandi
             DateTime checkIn = CheckInDate.Value;
             DateTime checkOut = CheckOutDate.Value;
 
-            MessageBox.Show(hotel.CheckAvailability(numOccupants, checkIn, checkOut).ToString());
+            bool available = hotel.CheckAvailability(numOccupants, checkIn, checkOut);
+
+            if (available)
+            {
+                ExitButton.Enabled = true;
+            }
+            else
+            {
+                ExitButton.Enabled = false;
+            }
 
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-
             form1.Show();
 
-            this.Hide();
+            this.Close();  
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-           
+            Form3 form3 = new Form3(hotel, form1);
+
+            form3.Show();
+            
+            this.Close();
         }
 
         private void Form2_Load(object sender, EventArgs e)

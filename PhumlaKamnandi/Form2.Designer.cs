@@ -41,6 +41,7 @@
             // 
             // ExitButton
             // 
+            this.ExitButton.Enabled = false;
             this.ExitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExitButton.Location = new System.Drawing.Point(931, 511);
             this.ExitButton.Name = "ExitButton";

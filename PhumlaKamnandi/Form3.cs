@@ -14,9 +14,14 @@ namespace PhumlaKamnandi
     public partial class Form3 : Form
     {
         public Hotel hotel;
-        public Form3(Hotel hotel)
+
+        private Form1 form1;
+
+        public Form3(Hotel hotel, Form1 form1)
         {
             this.hotel = hotel;
+
+            this.form1 = form1;
        
             InitializeComponent();
         }
@@ -63,16 +68,26 @@ namespace PhumlaKamnandi
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            form1.Show();
 
+            // method that clears Hotel variables for restart!!! (on all forms cancels)
+
+            this.Close();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            
+        }
 
-            form1.Show();
+        private void button2_Click(object sender, EventArgs e)
+        {
 
-            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

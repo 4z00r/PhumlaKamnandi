@@ -48,7 +48,7 @@ namespace PhumlaKamnandi
 
         private void makeBookingBtn_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(hotel);
+            Form2 form2 = new Form2(hotel, this);
 
             form2.Show();
 

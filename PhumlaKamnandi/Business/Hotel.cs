@@ -17,6 +17,8 @@ namespace PhumlaKamnandi.Business
         private int numRooms;
         private List<Room> rooms;
 
+        private Booking newBooking;
+
 
         public Hotel(int ID, int numRooms)
         {
@@ -30,9 +32,9 @@ namespace PhumlaKamnandi.Business
         }
 
         #region Functional operations
-        public Booking CheckAvailability(int numOccupants, DateTime checkInDate, DateTime checkOutDate)
+        public bool CheckAvailability(int numOccupants, DateTime checkInDate, DateTime checkOutDate)
         {
-            //error (if wrong input, show msg and return null)
+            //error (if wrong input, show msg and return null) !!!
                 //return null;
             //checking
 
@@ -44,13 +46,21 @@ namespace PhumlaKamnandi.Business
                 roomController.AllRooms,
                 period);
 
-            Booking newBooking = new Booking(
-             100,
-             freeRoom,
-             period,
-             new Price(period));
+            if (freeRoom == null)
+            {
+                return false;
+            }else
+            {
+                newBooking = new Booking(
+                    -1,
+                    freeRoom,
+                    period,
+                    new Price(period));
 
-            return newBooking;
+                return true;
+            }
+
+            
         }
         #endregion
     }
