@@ -96,6 +96,11 @@ namespace PhumlaKamnandi.Business
                 index++;
 
             }
+
+            if(!found)
+            {
+                return null;
+            }
             return guests[index];
         }
 

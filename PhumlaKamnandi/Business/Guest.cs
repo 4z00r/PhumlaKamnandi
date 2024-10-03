@@ -11,6 +11,7 @@ namespace PhumlaKamnandi.Business
     public class Guest : Person
     {
         private int guestID;
+        public int credit;
         private Collection<Booking> bookings;
 
         public int GuestID
@@ -19,15 +20,16 @@ namespace PhumlaKamnandi.Business
             set { guestID = value; }
         }
 
-        public Guest(int ID, string pName, string address, Collection<Booking> bookings) : base(pName, address)
+        public Guest(int ID, string pName, string telephone, string address, Collection<Booking> bookings) : base(pName, telephone ,address)
         {
             this.guestID = ID;
             this.bookings = bookings;
         }
 
-        public Guest(string pName, string address) : base(pName, address) // double check if this constructor is correct
+        public Guest(string pName, string telephone, string address) : base(pName, telephone, address) // double check if this constructor is correct
         {
-            
+            guestID = -1;
+            credit = 0;
         }
 
     }

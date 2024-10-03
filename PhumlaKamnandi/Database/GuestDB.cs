@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PhumlaKamnandi.Database
 {
@@ -56,11 +57,12 @@ namespace PhumlaKamnandi.Database
                 myRow = myRow_loopVariable;
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
-                    aGuest = new Guest("", "");
+                    aGuest = new Guest("", "", "");
                     aGuest.GuestID = Convert.ToInt32(myRow["GuestID"]);
                     aGuest.Name= Convert.ToString(myRow["Name"]);
                     aGuest.Address = Convert.ToString(myRow["Address"]);
                     aGuest.Telephone = Convert.ToString(myRow["Telephone"]);
+                    aGuest.credit = Convert.ToInt32(myRow["Credit"]);
 
                     AllGuests.Add(aGuest);
                 }
@@ -73,12 +75,13 @@ namespace PhumlaKamnandi.Database
             }
             if (operation == DB.DBOperation.Add)
             {
-                aRow["GuestID"] = aGuest.GuestID;
+                //aRow["GuestID"] = aGuest.GuestID;
 
             }
             aRow["Name"] = aGuest.Name;
             aRow["Address"] = aGuest.Address;
             aRow["Telephone"] = aGuest.Telephone;
+            aRow["Credit"] = aGuest.credit;
 
         }
         private int FindRow(Guest aGuest, string table)
@@ -148,7 +151,10 @@ namespace PhumlaKamnandi.Database
             param = new SqlParameter("@Telephone", SqlDbType.VarChar, 50, "Telephone");
             dataAdapter.InsertCommand.Parameters.Add(param);
 
-           
+            param = new SqlParameter("@Credit", SqlDbType.Int, 10000, "Credit");
+            dataAdapter.InsertCommand.Parameters.Add(param);
+
+
 
         }
         private void Build_UPDATE_Parameters(Guest aGuest)
@@ -157,15 +163,19 @@ namespace PhumlaKamnandi.Database
              * method to update check in/out dates - keeps Guest id the same
              */
             SqlParameter param = default(SqlParameter);
-            param = new SqlParameter("@Address", SqlDbType.DateTime, 100, "Address");
+            param = new SqlParameter("@Address", SqlDbType.Text, 100, "Address");
             param.SourceVersion = DataRowVersion.Current;
             dataAdapter.UpdateCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Telephone", SqlDbType.DateTime, 15, "Telephone");
+            param = new SqlParameter("@Telephone", SqlDbType.Text, 15, "Telephone");
             param.SourceVersion = DataRowVersion.Current;
             dataAdapter.UpdateCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Name", SqlDbType.Int, 15, "Name");
+            param = new SqlParameter("@Name", SqlDbType.Text, 15, "Name");
+            param.SourceVersion = DataRowVersion.Current;
+            dataAdapter.UpdateCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@Credit", SqlDbType.Int, 10000, "Credit");
             param.SourceVersion = DataRowVersion.Current;
             dataAdapter.UpdateCommand.Parameters.Add(param);
 
@@ -177,7 +187,7 @@ namespace PhumlaKamnandi.Database
         private void Create_UPDATE_Command(Guest aGuest)
         {
             dataAdapter.UpdateCommand = new SqlCommand(
-                "UPDATE Guest SET Name = @Name, Address = @Address, Telephone = @Telephone" +
+                "UPDATE Guest SET Name = @Name, Address = @Address, Telephone = @Telephone, Credit = @Credit" +
                 "WHERE GuestID = @Original_GuestID ", sqlConnection); // unsure if i add original_room id as well ?  
 
             Build_UPDATE_Parameters(aGuest);
@@ -186,8 +196,8 @@ namespace PhumlaKamnandi.Database
         private void Create_INSERT_Command(Guest aGuest)
         {
             dataAdapter.InsertCommand = new SqlCommand(
-                "INSERT into Guest (GuestID, Name, Address, Telephone) " +
-                "VALUES (@GuestID, @RoomEmpID, @Address, @Telephone)", sqlConnection);
+                "INSERT into Guest (Name, Address, Telephone, Credit) " +
+                "VALUES (@Name, @Address, @Telephone, @Credit)", sqlConnection);
 
             Build_INSERT_Parameters(aGuest);
         }

@@ -39,10 +39,11 @@ namespace PhumlaKamnandi
             address = "";
         }
 
-        public Person(string pName, string pAddress)
+        public Person(string pName, string ptelephone, string pAddress)
         {
             name = pName;
             address = pAddress;
+            telephone = ptelephone;
         }
         #endregion
 

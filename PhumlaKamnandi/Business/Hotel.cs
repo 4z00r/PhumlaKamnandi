@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PhumlaKamnandi.Business
 {
@@ -18,6 +19,7 @@ namespace PhumlaKamnandi.Business
         private List<Room> rooms;
 
         private Booking newBooking;
+        private Guest loggedInGuest;
 
 
         public Hotel(int ID, int numRooms)
@@ -61,6 +63,43 @@ namespace PhumlaKamnandi.Business
             }
 
             
+        }
+
+        public bool CheckGuest(int ID , string Name)
+        {
+            Guest guest = guestController.Find(ID);
+
+            if (guest == null)
+            {
+                return false;
+            }
+
+            if (guest.Name == Name)
+            {
+                loggedInGuest = guest;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void AddGuest(string name, string telephone, string address)
+        {
+
+
+
+            Guest newGuest = new Guest(name, telephone, address);
+            guestController.DataMaintenance(newGuest, Database.DB.DBOperation.Add);
+            if (guestController.FinalizeChanges(guestController.AllGuests[guestController.AllGuests.Count-1]))
+            {
+                MessageBox.Show("Registered Successfully");
+            }
+            else
+            {
+                MessageBox.Show("Failed registering new guest");
+            }
         }
         #endregion
     }

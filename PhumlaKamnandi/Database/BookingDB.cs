@@ -10,7 +10,7 @@ using PhumlaKamnandi.Business;
 
 namespace PhumlaKamnandi.Database
 {
-    public class BookingDB: DB      // might need .TrimEnd() after ToString
+    public class BookingDB: DB      // might need .TrimEnd() after ToString !!
     {
         #region  Data members        
         private string table1 = "Booking";
@@ -71,7 +71,7 @@ namespace PhumlaKamnandi.Database
         }
         if (operation == DB.DBOperation.Add)
         {
-            aRow["BookingID"] = aBooking.BookingID;
+            //aRow["BookingID"] = aBooking.BookingID;
             
         }
         aRow["RoomID"] = aBooking.Room.RoomID;
@@ -190,8 +190,8 @@ namespace PhumlaKamnandi.Database
     private void Create_INSERT_Command(Booking aBooking)
     {
         dataAdapter.InsertCommand = new SqlCommand(
-            "INSERT into Booking (BookingID, RoomID, CheckIn, CheckOut, Price) " +
-            "VALUES (@BookingID, @RoomEmpID, @CheckIn, @CheckOut, @Price)", sqlConnection);
+            "INSERT into Booking (RoomID, CheckIn, CheckOut, Price) " +
+            "VALUES (@RoomID, @CheckIn, @CheckOut, @Price)", sqlConnection);
         
         Build_INSERT_Parameters(aBooking);
     }
