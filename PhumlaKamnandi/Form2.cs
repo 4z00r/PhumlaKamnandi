@@ -1,4 +1,5 @@
 ﻿using PhumlaKamnandi.Business;
+using PhumlaKamnandi.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace PhumlaKamnandi
 {
@@ -15,6 +17,13 @@ namespace PhumlaKamnandi
     {
         public Hotel hotel;
         public Form1 form1;
+        private Guest guest;
+        private Booking booking;
+        private BookingController bookingController;
+        private GuestController guestController;
+        private Room room;
+        private RoomController roomController;
+        public bool formClosed = false;
         public Form2(Hotel hotel, Form1 form1)
         {
             this.hotel = hotel;
@@ -93,7 +102,22 @@ namespace PhumlaKamnandi
         {
 
         }
+        private void PopulateObject()
+        {
 
+            DateTime checkIn = CheckInDate.Value;
+            DateTime checkOut = CheckInDate.Value;
+
+
+            Period p = new Period(checkIn, checkOut);
+            booking.Dates = p;
+            booking.BookingID = 100;
+            booking.Pricing = new Price(p);
+            booking.Room = new Room(100);
+        }
+
+
+        //private void ReserveButton_Click() { }
         private void ReserveButton_Click(object sender, EventArgs e)
         {
             int numOccupants = Convert.ToInt32(numBox.Text);
@@ -117,15 +141,19 @@ namespace PhumlaKamnandi
         {
             form1.Show();
 
-            this.Close();  
+            this.Close();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            PopulateObject();
+            bookingController.DataMaintenance(booking, BookingDB.DBOperation.Add);
+            bookingController.FinalizeChanges(booking);
+
             Form3 form3 = new Form3(hotel, form1);
 
             form3.Show();
-            
+
             this.Close();
         }
 

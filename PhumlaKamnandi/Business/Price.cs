@@ -19,15 +19,26 @@ namespace PhumlaKamnandi.Business
         public Price(Period date) 
         { 
             this.date = date; 
-            determineSeasonPrice();
-            this.total = seasonCost * date.numDays();
+            //determineSeasonPrice();
+            //this.total = seasonCost * date.numDays();
         }
 
         public Price(int total, Period date) { this.total = total; this.date = date; }
-
-        public void determineSeasonPrice()
+        public float determineTotalPrice()
         {
-            Period.Season season = date.DetermineSeason();
+            float total = 0;
+            List<DateTime> dates = date.Dates;
+            for (int i = 0; i < dates.Count; i++)
+            {
+                total += determineSeasonPrice(dates[i]);
+            }
+            float deposit = (total * 0.1f);
+            total = total + deposit;
+            return total; 
+        }
+        public float determineSeasonPrice(DateTime d)
+        {
+            Period.Season season = date.DetermineSeason(d);
             switch (season)
             {
                 case Period.Season.offSeason:
@@ -40,6 +51,7 @@ namespace PhumlaKamnandi.Business
                     seasonCost = 995;
                     break;
             }
+            return seasonCost; 
         }
         public float Total
         {
