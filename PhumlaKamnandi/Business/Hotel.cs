@@ -20,6 +20,21 @@ namespace PhumlaKamnandi.Business
 
         private Booking newBooking;
         private Guest loggedInGuest;
+        private Price newPrice;
+        public Booking NewBooking
+        {
+            get { return newBooking; }
+        }
+
+        public Guest LoggedInGuest
+        {
+            get { return loggedInGuest; }
+        }
+
+        public Price NewPrice
+        {
+            get { return newPrice; }
+        }
 
 
         public Hotel(int ID, int numRooms)
@@ -34,7 +49,7 @@ namespace PhumlaKamnandi.Business
         }
 
         #region Functional operations
-        public bool CheckAvailability(int numOccupants, DateTime checkInDate, DateTime checkOutDate)
+        public bool CheckAvailability(DateTime checkInDate, DateTime checkOutDate)
         {
             //error (if wrong input, show msg and return null) !!!
                 //return null;
@@ -53,11 +68,12 @@ namespace PhumlaKamnandi.Business
                 return false;
             }else
             {
+                newPrice = new Price(period);
                 newBooking = new Booking(
                     -1,
                     freeRoom,
                     period,
-                    new Price(period));
+                    newPrice);
 
                 return true;
             }

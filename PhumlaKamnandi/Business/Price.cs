@@ -12,6 +12,7 @@ namespace PhumlaKamnandi.Business
     public class Price
     {
         private float total;
+        private float deposit;
         private Period date;
         private float seasonCost;
 
@@ -20,7 +21,7 @@ namespace PhumlaKamnandi.Business
         { 
             this.date = date; 
             //determineSeasonPrice();
-            //this.total = seasonCost * date.numDays();
+            this.total = determineTotalPrice();
         }
 
         public Price(int total, Period date) { this.total = total; this.date = date; }
@@ -32,8 +33,8 @@ namespace PhumlaKamnandi.Business
             {
                 total += determineSeasonPrice(dates[i]);
             }
-            float deposit = (total * 0.1f);
-            total = total + deposit;
+            deposit = (total * 0.1f);
+            //total = total + deposit;
             return total; 
         }
         public float determineSeasonPrice(DateTime d)
@@ -57,6 +58,10 @@ namespace PhumlaKamnandi.Business
         {
             get { return total; }
             set { total = value; }
+        }
+        public float Deposit
+        {
+            get { return deposit; }
         }
     }
 }

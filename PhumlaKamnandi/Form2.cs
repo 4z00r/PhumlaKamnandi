@@ -102,11 +102,11 @@ namespace PhumlaKamnandi
         //private void ReserveButton_Click() { }
         private void ReserveButton_Click(object sender, EventArgs e)
         {
-            int numOccupants = Convert.ToInt32(numBox.Text);
             DateTime checkIn = CheckInDate.Value;
             DateTime checkOut = CheckOutDate.Value;
 
-            bool available = hotel.CheckAvailability(numOccupants, checkIn, checkOut);
+            bool available = hotel.CheckAvailability(checkIn, checkOut);
+            
 
             if (available)
             {

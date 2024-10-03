@@ -76,7 +76,7 @@ namespace PhumlaKamnandi.Business
         public Season DetermineSeason(DateTime d)
         {
             
-            if (d.Day < 7)
+            if (d.Day <= 7)
             {
                 return Season.offSeason;
             }

@@ -66,6 +66,9 @@ namespace PhumlaKamnandi
             string cardName = textBox3.Text;
             string exp = textBox1.Text;
             string cvv = textBox2.Text;
+        
+
+
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -89,6 +92,8 @@ namespace PhumlaKamnandi
 
         private void Form4_Load(object sender, EventArgs e)
         {
+            fullPriceBox.Text = "R" + Convert.ToString(hotel.NewPrice.Total);
+            depositBox.Text = "R" + Convert.ToString(hotel.NewPrice.Deposit);
 
         }
     }

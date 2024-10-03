@@ -43,6 +43,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.fullPriceBox = new System.Windows.Forms.Label();
+            this.depositBox = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +63,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(89, 171);
+            this.label7.Location = new System.Drawing.Point(12, 159);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(149, 24);
             this.label7.TabIndex = 70;
@@ -90,7 +92,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(144, 112);
+            this.label1.Location = new System.Drawing.Point(67, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 24);
             this.label1.TabIndex = 58;
@@ -196,12 +198,34 @@
             this.pictureBox1.TabIndex = 87;
             this.pictureBox1.TabStop = false;
             // 
+            // fullPriceBox
+            // 
+            this.fullPriceBox.AutoSize = true;
+            this.fullPriceBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullPriceBox.Location = new System.Drawing.Point(169, 112);
+            this.fullPriceBox.Name = "fullPriceBox";
+            this.fullPriceBox.Size = new System.Drawing.Size(33, 24);
+            this.fullPriceBox.TabIndex = 90;
+            this.fullPriceBox.Text = "R0";
+            // 
+            // depositBox
+            // 
+            this.depositBox.AutoSize = true;
+            this.depositBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.depositBox.Location = new System.Drawing.Point(169, 159);
+            this.depositBox.Name = "depositBox";
+            this.depositBox.Size = new System.Drawing.Size(33, 24);
+            this.depositBox.TabIndex = 91;
+            this.depositBox.Text = "R0";
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PhumlaKamnandi.Properties.Resources.vojtech_bruzek_Yrxr3bsPdS0_unsplash;
             this.ClientSize = new System.Drawing.Size(516, 526);
+            this.Controls.Add(this.depositBox);
+            this.Controls.Add(this.fullPriceBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pictureBox1);
@@ -242,5 +266,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label fullPriceBox;
+        private System.Windows.Forms.Label depositBox;
     }
 }
