@@ -138,6 +138,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="BookingDBDataSet.xsc">
       <DependentUpon>BookingDBDataSet.xsd</DependentUpon>
@@ -171,6 +172,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BookingDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Screenshot 2024-10-02 at 21.00.44.png" />
+    <None Include="Resources\vojtech-bruzek-Yrxr3bsPdS0-unsplash.jpg" />
+    <None Include="Resources\runnyrem-LfqmND-hym8-unsplash.jpg" />
+    <None Include="Resources\rhema-kallianpur-uocSnWMhnAs-unsplash.jpg" />
+    <None Include="Resources\nik-lanus-YMOHw3F1Hdk-unsplash.jpg" />
+    <None Include="Resources\mohammad-alizade-XgeZu2jBaVI-unsplash.jpg" />
+    <None Include="Resources\marten-bjork-n_IKQDCyrG0-unsplash.jpg" />
+    <None Include="Resources\manuel-moreno-DGa0LQ0yDPc-unsplash.jpg" />
+    <None Include="Resources\madison-bracaglia-fcWAwPKpkTU-unsplash.jpg" />
+    <None Include="Resources\alev-takil-lw3Lqe2K7xc-unsplash.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
