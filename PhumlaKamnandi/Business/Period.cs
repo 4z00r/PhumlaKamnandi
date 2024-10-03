@@ -13,7 +13,7 @@ namespace PhumlaKamnandi.Business
     {
 
         private DateTime checkIn, checkOut;
-
+        private List<DateTime> dates;
         public enum Season
         {
             peakSeason,
@@ -33,14 +33,27 @@ namespace PhumlaKamnandi.Business
             get { return checkOut; }
             set { checkOut = value; }
         }
-
+        public List<DateTime> Dates
+        {
+            get { return dates; }
+            set { dates = value; }
+        }
         public Period(DateTime checkIn, DateTime checkOut)
         {
 
             this.checkIn = checkIn;
             this.checkOut = checkOut;
 
-            this.season = DetermineSeason(); 
+            // One period doesn't fall under one season so this isn't applicable
+            //this.season = DetermineSeason();
+
+            // populates list with all dates in the period
+            DateTime start = checkIn;
+            for (int i = CheckIn.Day; i < CheckOut.Day; i++)
+            {
+                dates.Add(start);
+                start.AddDays(1);
+            }
         }
 
         public bool Overlap(Period other)
@@ -60,14 +73,14 @@ namespace PhumlaKamnandi.Business
 
         }
 
-        public Season DetermineSeason()
+        public Season DetermineSeason(DateTime d)
         {
-            // take preference of checkin Day
-            if (checkIn.Day < 7)
+            
+            if (d.Day < 7)
             {
                 return Season.offSeason;
             }
-            else if (checkIn.Day > 7 && checkIn.Day <= 15)
+            else if (d.Day > 7 && d.Day <= 15)
             {
                 return Season.midSeason;
             }
