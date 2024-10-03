@@ -1,4 +1,5 @@
 ﻿using PhumlaKamnandi.Business;
+using PhumlaKamnandi.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -145,7 +146,9 @@ namespace PhumlaKamnandi
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            PopulateObject(); 
+            PopulateObject();
+            bookingController.DataMaintenance(booking, BookingDB.DBOperation.Add);
+            bookingController.FinalizeChanges(booking);
 
             Form3 form3 = new Form3(hotel, form1);
 
