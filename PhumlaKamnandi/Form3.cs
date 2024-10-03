@@ -45,7 +45,11 @@ namespace PhumlaKamnandi
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            
+            Form4 form4 = new Form4(hotel);
+
+            form4.Show();
+
+            this.Close();
 
         }
 

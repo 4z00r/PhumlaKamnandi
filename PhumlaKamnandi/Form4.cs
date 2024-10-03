@@ -62,7 +62,10 @@ namespace PhumlaKamnandi
 
         private void CheckOutButton_Click(object sender, EventArgs e)
         {
-
+            string cardNum = CreditBox.Text;
+            string cardName = textBox3.Text;
+            string exp = textBox1.Text;
+            string cvv = textBox2.Text;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

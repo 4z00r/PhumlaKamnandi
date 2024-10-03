@@ -46,13 +46,13 @@ namespace PhumlaKamnandi.Business
 
             // One period doesn't fall under one season so this isn't applicable
             //this.season = DetermineSeason();
-
+            dates = new List<DateTime>();   
             // populates list with all dates in the period
             DateTime start = checkIn;
             for (int i = CheckIn.Day; i < CheckOut.Day; i++)
             {
                 dates.Add(start);
-                start.AddDays(1);
+                start = start.AddDays(1);
             }
         }
 
