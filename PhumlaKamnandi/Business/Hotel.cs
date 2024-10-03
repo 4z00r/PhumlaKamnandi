@@ -129,6 +129,17 @@ namespace PhumlaKamnandi.Business
             bookingController.FinalizeChanges(bookingController.AllBookings[bookingController.AllBookings.Count-1]);
 
         }
+
+        public void CancelBooking()
+        {
+            bookingController.DataMaintenance(NewBooking, Database.DB.DBOperation.Delete);
+            bookingController.FinalizeChanges(NewBooking); 
+        }
+        public void EditBooking()
+        {
+            bookingController.DataMaintenance(NewBooking, Database.DB.DBOperation.Edit);
+            bookingController.FinalizeChanges(NewBooking);
+        }
         #endregion
     }
 }

@@ -67,5 +67,19 @@ namespace PhumlaKamnandi
         {
 
         }
+
+        private void changeBookingBtn_Click(object sender, EventArgs e)
+        {
+            Form7 form7 = new Form7();
+            form7.Show();
+            this.Hide(); 
+        }
+
+        private void enquireBtn_Click(object sender, EventArgs e)
+        {
+            Form5 form5 = new Form5(hotel);
+            form5.Show();
+            this.Hide(); 
+        }
     }
 }

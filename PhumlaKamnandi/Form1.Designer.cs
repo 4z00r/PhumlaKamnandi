@@ -130,6 +130,7 @@
             this.changeBookingBtn.TabIndex = 12;
             this.changeBookingBtn.Text = "Change Booking";
             this.changeBookingBtn.UseVisualStyleBackColor = true;
+            this.changeBookingBtn.Click += new System.EventHandler(this.changeBookingBtn_Click);
             // 
             // cancelBookingBtn
             // 
@@ -151,6 +152,7 @@
             this.enquireBtn.TabIndex = 14;
             this.enquireBtn.Text = "Enquire Booking";
             this.enquireBtn.UseVisualStyleBackColor = true;
+            this.enquireBtn.Click += new System.EventHandler(this.enquireBtn_Click);
             // 
             // Form1
             // 
