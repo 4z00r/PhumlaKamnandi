@@ -43,7 +43,10 @@ namespace PhumlaKamnandi
 
         private void ReportButton_Click(object sender, EventArgs e)
         {
-            
+            Form6 form6 = new Form6(hotel);
+
+            form6.ShowDialog();
+
         }
 
         private void makeBookingBtn_Click(object sender, EventArgs e)
@@ -53,6 +56,16 @@ namespace PhumlaKamnandi
             form2.Show();
 
             this.Hide();
+        }
+
+        private void cancelBookingBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Welcome_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

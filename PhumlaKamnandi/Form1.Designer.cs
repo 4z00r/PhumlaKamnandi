@@ -61,6 +61,7 @@
             this.Welcome.Size = new System.Drawing.Size(756, 73);
             this.Welcome.TabIndex = 3;
             this.Welcome.Text = "Phumla Kamnandi Hotels";
+            this.Welcome.Click += new System.EventHandler(this.Welcome_Click);
             // 
             // ReservationButton
             // 
@@ -139,6 +140,7 @@
             this.cancelBookingBtn.TabIndex = 13;
             this.cancelBookingBtn.Text = "Cancel Booking";
             this.cancelBookingBtn.UseVisualStyleBackColor = true;
+            this.cancelBookingBtn.Click += new System.EventHandler(this.cancelBookingBtn_Click);
             // 
             // enquireBtn
             // 

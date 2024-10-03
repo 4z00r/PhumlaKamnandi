@@ -35,6 +35,10 @@ namespace PhumlaKamnandi.Business
         {
             get { return newPrice; }
         }
+        public BookingController BookingController
+        {
+            get { return bookingController; }
+        } 
 
 
         public Hotel(int ID, int numRooms)
@@ -116,6 +120,14 @@ namespace PhumlaKamnandi.Business
             {
                 MessageBox.Show("Failed registering new guest");
             }
+        }
+
+        public void AddBooking()
+        {
+
+            bookingController.DataMaintenance(NewBooking, Database.DB.DBOperation.Add);
+            bookingController.FinalizeChanges(bookingController.AllBookings[bookingController.AllBookings.Count-1]);
+
         }
         #endregion
     }

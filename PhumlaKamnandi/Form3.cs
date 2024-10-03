@@ -103,6 +103,8 @@ namespace PhumlaKamnandi
 
         private void button2_Click(object sender, EventArgs e)
         {
+            hotel.AddBooking();
+            
             Form4 form4 = new Form4(hotel);
 
             form4.Show();

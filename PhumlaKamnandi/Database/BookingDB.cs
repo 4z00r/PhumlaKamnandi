@@ -77,6 +77,7 @@ namespace PhumlaKamnandi.Database
         aRow["RoomID"] = aBooking.Room.RoomID;
         aRow["CheckIn"] = aBooking.Dates.CheckIn;
         aRow["CheckOut"] = aBooking.Dates.CheckOut;
+            aRow["Price"] = aBooking.Pricing.Total;
             
         }
     private int FindRow(Booking aBooking, string table)
