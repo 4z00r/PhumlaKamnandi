@@ -18,20 +18,25 @@ namespace PhumlaKamnandi
         public Hotel hotel;
         public BookingController bookingController;
         public GuestController guestController;
-        private Guest guest; 
-        
-        public Form5(Hotel hotel)
+        private Guest guest;
+
+        private int justBookedGuestID;
+
+        public Form5(Hotel hotel, int GuestID)
         {
             this.hotel = hotel;
             InitializeComponent();
             bookingController = new BookingController();
-            //hotel.
-             
+            guestController = new GuestController();
+
+
+            justBookedGuestID = GuestID;
+
         }
         private void setUpListView()
         {
             //ListViewItem bookingDetails;
-            //Booking b; 
+            //Booking b;
             //bookingListView.Clear();
 
             //bookingListView.Columns.Insert(0, "BookingID", 120, HorizontalAlignment.Left);
@@ -39,7 +44,7 @@ namespace PhumlaKamnandi
             //bookingListView.Columns.Insert(2, "CheckIn", 120, HorizontalAlignment.Left);
             //bookingListView.Columns.Insert(3, "CheckOut", 120, HorizontalAlignment.Left);
 
-            
+
             ////foreach(Booking)
             //bookingListView.Refresh();
 
@@ -54,13 +59,13 @@ namespace PhumlaKamnandi
             bookingListView.Columns.Add("Room ID", 100, HorizontalAlignment.Left);
             bookingListView.Columns.Add("Check-In", 150, HorizontalAlignment.Left);
             bookingListView.Columns.Add("Check-Out", 150, HorizontalAlignment.Left);
-            bookingListView.Columns.Add("Price", 100, HorizontalAlignment.Left);
+            //bookingListView.Columns.Add("Price", 100, HorizontalAlignment.Left);
         }
 
         private void loadData()
         {
             // i don't know how to display just a singular guest's bookings - as a guest isn't associated with a booking?
-            // did it for all bookings *for now* 
+            // did it for all bookings *for now*
             Collection<Booking> allBookings = bookingController.AllBookings;
             int guestID = Convert.ToInt32(textBox7.Text);
             guest = guestController.Find(guestID);
@@ -73,7 +78,7 @@ namespace PhumlaKamnandi
                     item.SubItems.Add(booking.Room.RoomID.ToString());
                     item.SubItems.Add(booking.Dates.CheckIn.ToShortDateString());
                     item.SubItems.Add(booking.Dates.CheckOut.ToShortDateString());
-                    item.SubItems.Add(booking.Pricing.Total.ToString("C"));
+                    // item.SubItems.Add(booking.Pricing.Total.ToString("C"));
 
                     bookingListView.Items.Add(item);
                 }
@@ -90,6 +95,10 @@ namespace PhumlaKamnandi
 
         private void Form5_Load(object sender, EventArgs e)
         {
+            this.button1.Enabled = true;
+
+            textBox7.Text = justBookedGuestID.ToString();
+
             setUpListView();
         }
 
@@ -100,7 +109,7 @@ namespace PhumlaKamnandi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            loadData(); 
+            loadData();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using PhumlaKamnandi.Business;
+using PhumlaKamnandi.Database;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -103,13 +105,36 @@ namespace PhumlaKamnandi
 
         private void button2_Click(object sender, EventArgs e)
         {
-            hotel.AddBooking();
+            DialogResult result = MessageBox.Show(
+                "Do you want to continue and create this booking under GuestID: "+ hotel.LoggedInGuest.GuestID +"?",        
+                "Confirmation",                    
+                MessageBoxButtons.YesNo,           
+                MessageBoxIcon.Question            
+            );
+
+            if (result == DialogResult.Yes)
+            {
+
+                hotel.AddBooking();
+                BookingController b = new BookingController();
+                Collection<Booking> bookings = b.AllBookings;
+                MessageBox.Show("Reservation created with ID: " + bookings[bookings.Count-1].BookingID +"\nKindly ask Guest to take note of this number.");
+
+
+                Form4 form4 = new Form4(hotel);
+
+                form4.Show();
+
+                this.Close();
+            }
+            else if (result == DialogResult.No)
+            {
+                form1.Show();
+
+                this.Close();
+            }
+
             
-            Form4 form4 = new Form4(hotel);
-
-            form4.Show();
-
-            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -20,6 +20,10 @@ namespace PhumlaKamnandi.Business
             set { guestID = value; }
         }
 
+        public Guest(int ID)
+        {
+            this.guestID = ID;
+        }
         public Guest(int ID, string pName, string telephone, string address, Collection<Booking> bookings) : base(pName, telephone ,address)
         {
             this.guestID = ID;

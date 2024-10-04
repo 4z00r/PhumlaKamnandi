@@ -18,9 +18,10 @@ namespace PhumlaKamnandi.Business
         private Price price;
         private Guest guest; 
 
-        public Booking(Room r) 
+        public Booking(Room r, Guest g) 
         {
             this.room = r;
+            this.guest = g;
         }
         public Booking(int id, Room r, Period dates, Price pricing, Guest guest)
         {

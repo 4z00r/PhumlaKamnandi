@@ -67,8 +67,12 @@ namespace PhumlaKamnandi
             string exp = textBox1.Text;
             string cvv = textBox2.Text;
 
-            Form5 form5 = new Form5(hotel); 
-        
+            Form5 form5 = new Form5(hotel, hotel.LoggedInGuest.GuestID);
+
+            form5.Show();
+
+            this.Close();
+
 
 
         }

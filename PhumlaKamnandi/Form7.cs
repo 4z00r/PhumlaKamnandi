@@ -15,35 +15,50 @@ namespace PhumlaKamnandi
     public partial class Form7 : Form
     {
         // form to change a booking
-        public Form7()
+        Hotel hotel;
+        Form1 form1;
+
+        public Form7(Hotel hotel, Form1 form1)
         {
             InitializeComponent();
+
+            this.hotel = hotel;
+            this.form1 = form1;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             int bookingID = Convert.ToInt32(bookingIDBox.Text);
-            int roomID = Convert.ToInt32(RoomIDBox.Text);
+
             DateTime checkIn = CheckInDate.Value;
             DateTime checkOut = CheckOutDate.Value;
-            int price = Convert.ToInt32(priceBox.Text);
 
             // Find the booking to update
             BookingController bookingController = new BookingController();
             Booking booking = bookingController.Find(bookingID);
+            
 
             if (booking != null)
             {
+
+                hotel.CheckAvailability(checkIn,checkOut);
+
                 // Update the booking details
-                booking.Room.RoomID = roomID;
-                booking.Dates = new Period(checkIn, checkOut);
-                booking.Pricing.Total = price;
+                bool available = hotel.CheckAvailability(checkIn, checkOut);
 
-                // Save changes to the database
-                bookingController.DataMaintenance(booking, DB.DBOperation.Edit);
-                bookingController.FinalizeChanges(booking);
 
-                MessageBox.Show("Booking updated successfully.");
+                if (available)
+                {
+                    //bookingController.DataMaintenance(hotel.NewBooking, DB.DBOperation.Edit);
+                    //bookingController.FinalizeChanges(booking);
+                    hotel.AddBooking();
+                    MessageBox.Show("Booking updated successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("Booking not found.");
+                }
+                
             }
             else
             {
@@ -63,7 +78,6 @@ namespace PhumlaKamnandi
             RoomIDBox.Text = booking.Room.RoomID.ToString();
             CheckInDate.Value = booking.Dates.CheckIn;
             CheckOutDate.Value = booking.Dates.CheckOut;
-            priceBox.Text = booking.Pricing.Total.ToString();
 
            
         }
@@ -103,7 +117,12 @@ namespace PhumlaKamnandi
             RoomIDBox.Clear();
             CheckInDate.Value = DateTime.Today;
             CheckOutDate.Value = DateTime.Today;
-            priceBox.Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            form1.Show();
+            this.Close();
         }
     }
 

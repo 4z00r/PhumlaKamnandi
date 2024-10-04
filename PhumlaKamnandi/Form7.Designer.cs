@@ -36,16 +36,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.RoomIDBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.priceBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CheckInDate
             // 
             this.CheckInDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckInDate.Location = new System.Drawing.Point(156, 241);
+            this.CheckInDate.Location = new System.Drawing.Point(156, 193);
             this.CheckInDate.Name = "CheckInDate";
             this.CheckInDate.Size = new System.Drawing.Size(334, 29);
             this.CheckInDate.TabIndex = 57;
@@ -53,7 +52,7 @@
             // CheckOutDate
             // 
             this.CheckOutDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckOutDate.Location = new System.Drawing.Point(156, 295);
+            this.CheckOutDate.Location = new System.Drawing.Point(156, 247);
             this.CheckOutDate.Name = "CheckOutDate";
             this.CheckOutDate.Size = new System.Drawing.Size(334, 29);
             this.CheckOutDate.TabIndex = 58;
@@ -62,7 +61,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(29, 241);
+            this.label12.Location = new System.Drawing.Point(29, 193);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 24);
             this.label12.TabIndex = 59;
@@ -72,7 +71,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(29, 295);
+            this.label13.Location = new System.Drawing.Point(29, 247);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(100, 24);
             this.label13.TabIndex = 60;
@@ -113,23 +112,6 @@
             this.RoomIDBox.Size = new System.Drawing.Size(100, 20);
             this.RoomIDBox.TabIndex = 64;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(29, 163);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 24);
-            this.label3.TabIndex = 65;
-            this.label3.Text = "Price";
-            // 
-            // priceBox
-            // 
-            this.priceBox.Location = new System.Drawing.Point(156, 168);
-            this.priceBox.Name = "priceBox";
-            this.priceBox.Size = new System.Drawing.Size(100, 20);
-            this.priceBox.TabIndex = 66;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(33, 376);
@@ -150,16 +132,25 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(600, 376);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(96, 36);
+            this.button3.TabIndex = 69;
+            this.button3.Text = "Exit";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PhumlaKamnandi.Properties.Resources.runnyrem_LfqmND_hym8_unsplash;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.priceBox);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.RoomIDBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -185,9 +176,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox RoomIDBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox priceBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

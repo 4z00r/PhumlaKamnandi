@@ -52,6 +52,13 @@ namespace PhumlaKamnandi.Business
             roomController = new RoomController();
         }
 
+        public void ClearAll()
+        {
+            newBooking = null;
+            loggedInGuest = null;
+            newPrice = null;
+        }
+
         #region Functional operations
         public bool CheckAvailability(DateTime checkInDate, DateTime checkOutDate)
         {
@@ -98,6 +105,7 @@ namespace PhumlaKamnandi.Business
             if (guest.Name == Name)
             {
                 loggedInGuest = guest;
+                newBooking.Guest = guest;
                 return true;
             }
             else

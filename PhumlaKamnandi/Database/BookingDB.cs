@@ -10,7 +10,7 @@ using PhumlaKamnandi.Business;
 
 namespace PhumlaKamnandi.Database
 {
-    public class BookingDB: DB      // might need .TrimEnd() after ToString !!
+    public class BookingDB: DB      
     {
         #region  Data members        
         private string table1 = "Booking";
@@ -55,10 +55,11 @@ namespace PhumlaKamnandi.Database
             myRow = myRow_loopVariable;
             if (!(myRow.RowState == DataRowState.Deleted))
             {
-                aBooking = new Booking(new Room(-1));
+                aBooking = new Booking(new Room(-1), new Guest(-1));
                 aBooking.BookingID = Convert.ToInt32(myRow["BookingID"]);
                 aBooking.Room.RoomID = Convert.ToInt32(myRow["RoomID"]);
-                aBooking.BookingID = Convert.ToInt32(myRow["GuestID"]); 
+                
+                    aBooking.Guest.GuestID = Convert.ToInt32(myRow["GuestID"]); 
                 aBooking.Dates = new Period( Convert.ToDateTime(myRow["CheckIn"]), Convert.ToDateTime(myRow["CheckOut"]) );
                 aBooking.Pricing = new Price(Convert.ToInt32(myRow["Price"]), aBooking.Dates);
                 
@@ -209,13 +210,22 @@ namespace PhumlaKamnandi.Database
     {
         dataAdapter.DeleteCommand = new SqlCommand(
             "DELETE FROM Booking WHERE BookingID = @Original_BookingID", sqlConnection);
+            BuildDelete();
     }
+
+        private void BuildDelete()
+        {
+            SqlParameter param = new SqlParameter("@Original_BookingID", SqlDbType.Int, 15, "BookingID");
+            param.SourceVersion = DataRowVersion.Original; // Use the original value from the DataRow
+            dataAdapter.DeleteCommand.Parameters.Add(param);
+        }
 
     public bool UpdateDataSource(Booking aBooking)
     {
         bool success = true;
         Create_INSERT_Command(aBooking);
         Create_UPDATE_Command(aBooking);
+            Create_DELETE_Command(aBooking);
 
         success = UpdateDataSource(sqlLocal1, table1);        
         return success;

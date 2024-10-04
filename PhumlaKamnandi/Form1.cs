@@ -62,7 +62,11 @@ namespace PhumlaKamnandi
 
         private void cancelBookingBtn_Click(object sender, EventArgs e)
         {
+            Form7 form7 = new Form7(hotel, this);
 
+            form7.Show();
+
+            this.Hide();
         }
 
         private void Welcome_Click(object sender, EventArgs e)
@@ -72,15 +76,15 @@ namespace PhumlaKamnandi
 
         private void changeBookingBtn_Click(object sender, EventArgs e)
         {
-            Form7 form7 = new Form7();
+            Form7 form7 = new Form7(hotel, this);
             form7.Show();
             this.Hide(); 
         }
 
         private void enquireBtn_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(hotel, this);
-            form2.Show();
+            Form5 form5 = new Form5(hotel, -1);
+            form5.Show();
             this.Hide();
         }
     }
