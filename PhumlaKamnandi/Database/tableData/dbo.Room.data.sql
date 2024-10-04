@@ -1,0 +1,5 @@
+﻿INSERT INTO [dbo].[Room] ([RoomID]) VALUES (1)
+INSERT INTO [dbo].[Room] ([RoomID]) VALUES (2)
+INSERT INTO [dbo].[Room] ([RoomID]) VALUES (3)
+INSERT INTO [dbo].[Room] ([RoomID]) VALUES (4)
+INSERT INTO [dbo].[Room] ([RoomID]) VALUES (5)

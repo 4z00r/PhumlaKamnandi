@@ -98,5 +98,10 @@ namespace PhumlaKamnandi
             depositBox.Text = "R" + Convert.ToString(hotel.NewPrice.Deposit);
 
         }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

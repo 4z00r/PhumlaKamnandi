@@ -1,0 +1,6 @@
+﻿INSERT INTO [dbo].[Guest] ([GuestID], [Name], [Address], [Telephone], [Credit]) VALUES (100, N'John Smith', N'7 Main Rd, Rondebosch, 7700', N'0218573401', 0)
+INSERT INTO [dbo].[Guest] ([GuestID], [Name], [Address], [Telephone], [Credit]) VALUES (101, N'oNkosinathi Mthembu', N'14 Lungelo Drive, Mtimkhulu, Durban, 4001', N'0824607145', 0)
+INSERT INTO [dbo].[Guest] ([GuestID], [Name], [Address], [Telephone], [Credit]) VALUES (102, N'Mark Goldbridge', N'13 Crescent St, Wynberg, 7900', N'081664190', 0)
+INSERT INTO [dbo].[Guest] ([GuestID], [Name], [Address], [Telephone], [Credit]) VALUES (103, N'Theo Walker', N'35 Abercombe Rd, Newlands, 7780', N'0793958842', 0)
+INSERT INTO [dbo].[Guest] ([GuestID], [Name], [Address], [Telephone], [Credit]) VALUES (104, N'Jack White', N'21 Cottage Ave. Claremont, 7801', N'0827014370', 0)
+INSERT INTO [dbo].[Guest] ([GuestID], [Name], [Address], [Telephone], [Credit]) VALUES (105, N'Bill Shunt', N'98 Flemming way, Kirstenbosch', N'0825631900', 0)

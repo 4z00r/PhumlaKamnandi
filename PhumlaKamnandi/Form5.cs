@@ -17,6 +17,7 @@ namespace PhumlaKamnandi
     {
         public Hotel hotel;
         public BookingController bookingController;
+        public GuestController guestController;
         private Guest guest; 
         
         public Form5(Hotel hotel)
@@ -61,16 +62,21 @@ namespace PhumlaKamnandi
             // i don't know how to display just a singular guest's bookings - as a guest isn't associated with a booking?
             // did it for all bookings *for now* 
             Collection<Booking> allBookings = bookingController.AllBookings;
-
-            foreach (Booking booking in allBookings)
+            int guestID = Convert.ToInt32(textBox7.Text);
+            guest = guestController.Find(guestID);
+            if (guest != null)
             {
-                ListViewItem item = new ListViewItem(booking.BookingID.ToString());
-                item.SubItems.Add(booking.Room.RoomID.ToString());
-                item.SubItems.Add(booking.Dates.CheckIn.ToShortDateString());
-                item.SubItems.Add(booking.Dates.CheckOut.ToShortDateString());
-                item.SubItems.Add(booking.Pricing.Total.ToString("C"));
+                Collection<Booking> guestBookings = bookingController.FindByGuest(allBookings, guest);
+                foreach (Booking booking in guestBookings)
+                {
+                    ListViewItem item = new ListViewItem(booking.BookingID.ToString());
+                    item.SubItems.Add(booking.Room.RoomID.ToString());
+                    item.SubItems.Add(booking.Dates.CheckIn.ToShortDateString());
+                    item.SubItems.Add(booking.Dates.CheckOut.ToShortDateString());
+                    item.SubItems.Add(booking.Pricing.Total.ToString("C"));
 
-                bookingListView.Items.Add(item);
+                    bookingListView.Items.Add(item);
+                }
             }
         }
         private void ExitButton_Click(object sender, EventArgs e)
@@ -84,12 +90,17 @@ namespace PhumlaKamnandi
 
         private void Form5_Load(object sender, EventArgs e)
         {
-
+            setUpListView();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             bookingListView.View = View.Details;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            loadData(); 
         }
     }
 }

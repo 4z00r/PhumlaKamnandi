@@ -77,7 +77,8 @@ namespace PhumlaKamnandi.Business
                     -1,
                     freeRoom,
                     period,
-                    newPrice);
+                    newPrice,
+                    loggedInGuest);
 
                 return true;
             }
