@@ -82,6 +82,18 @@ namespace PhumlaKamnandi.Business
             }
             return found;
         }
+        public Collection<Booking> FindByGuest(Collection<Booking> bookings, Guest guest)
+        {
+            Collection<Booking> found = new Collection<Booking>();
+            foreach (Booking booking in bookings)
+            {
+                if (booking.Guest.GuestID == guest.GuestID)
+                {
+                    found.Add(booking);
+                }
+            }
+            return found;
+        }
 
         public Booking Find(int ID)
         {

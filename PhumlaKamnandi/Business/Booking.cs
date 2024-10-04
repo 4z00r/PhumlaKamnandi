@@ -16,19 +16,19 @@ namespace PhumlaKamnandi.Business
         private Room room;
         private Period dates;
         private Price price;
+        private Guest guest; 
 
         public Booking(Room r) 
         {
             this.room = r;
         }
-        public Booking(int id, Room r, Period dates, Price pricing)
+        public Booking(int id, Room r, Period dates, Price pricing, Guest guest)
         {
             this.bookingID = id;
             this.room = r;
             this.dates = dates;
             this.price = pricing;
-
-            //System.DateTime.Compare()
+            this.guest = guest; 
         }
 
         public int BookingID
@@ -50,6 +50,11 @@ namespace PhumlaKamnandi.Business
         {
             get { return price; }
             set { price = value; }
+        }
+        public Guest Guest
+        {
+            get { return guest; }
+            set { guest = value; }
         }
 
         public override string ToString()

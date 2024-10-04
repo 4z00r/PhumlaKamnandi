@@ -28,7 +28,9 @@ namespace PhumlaKamnandi
 
         private void CheckInButton_Click(object sender, EventArgs e)
         {
-            
+            Form3 form3 = new Form3(hotel, this);
+            form3.Show();
+            this.Hide();
         }
 
         private void CheckOutButton_Click(object sender, EventArgs e)
@@ -77,9 +79,9 @@ namespace PhumlaKamnandi
 
         private void enquireBtn_Click(object sender, EventArgs e)
         {
-            Form5 form5 = new Form5(hotel);
-            form5.Show();
-            this.Hide(); 
+            Form2 form2 = new Form2(hotel, this);
+            form2.Show();
+            this.Hide();
         }
     }
 }

@@ -58,6 +58,7 @@ namespace PhumlaKamnandi.Database
                 aBooking = new Booking(new Room(-1));
                 aBooking.BookingID = Convert.ToInt32(myRow["BookingID"]);
                 aBooking.Room.RoomID = Convert.ToInt32(myRow["RoomID"]);
+                aBooking.BookingID = Convert.ToInt32(myRow["GuestID"]); 
                 aBooking.Dates = new Period( Convert.ToDateTime(myRow["CheckIn"]), Convert.ToDateTime(myRow["CheckOut"]) );
                 aBooking.Pricing = new Price(Convert.ToInt32(myRow["Price"]), aBooking.Dates);
                 
@@ -75,9 +76,10 @@ namespace PhumlaKamnandi.Database
             
         }
         aRow["RoomID"] = aBooking.Room.RoomID;
+        aRow["GuestID"] = aBooking.Guest.GuestID; 
         aRow["CheckIn"] = aBooking.Dates.CheckIn;
         aRow["CheckOut"] = aBooking.Dates.CheckOut;
-            aRow["Price"] = aBooking.Pricing.Total;
+        aRow["Price"] = aBooking.Pricing.Total;
             
         }
     private int FindRow(Booking aBooking, string table)
@@ -141,7 +143,10 @@ namespace PhumlaKamnandi.Database
         param = new SqlParameter("@RoomID", SqlDbType.Int, 15, "RoomID");
         dataAdapter.InsertCommand.Parameters.Add(param);
 
-        param = new SqlParameter("@CheckIn", SqlDbType.DateTime, 15, "CheckIn");
+        param = new SqlParameter("@GuestID", SqlDbType.Int, 15, "GuestID");
+        dataAdapter.InsertCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@CheckIn", SqlDbType.DateTime, 15, "CheckIn");
         dataAdapter.InsertCommand.Parameters.Add(param);
 
         param = new SqlParameter("@CheckOut", SqlDbType.DateTime,15, "CheckOut");
@@ -177,13 +182,17 @@ namespace PhumlaKamnandi.Database
 
         param = new SqlParameter("@Original_BookingID", SqlDbType.Int, 15, "BookingID");
         param.SourceVersion = DataRowVersion.Original;
-        dataAdapter.UpdateCommand.Parameters.Add(param);    
-    }
+        dataAdapter.UpdateCommand.Parameters.Add(param);
+
+        param = new SqlParameter("@Original_GuestID", SqlDbType.Int, 15, "GuestID");
+        param.SourceVersion = DataRowVersion.Original;
+        dataAdapter.UpdateCommand.Parameters.Add(param);
+        }
     private void Create_UPDATE_Command(Booking aBooking)
     {
             dataAdapter.UpdateCommand = new SqlCommand(
                 "UPDATE Booking SET RoomID = @RoomID, CheckIn = @CheckIn, CheckOut = @CheckOut, Price = @Price" +
-                "WHERE BookingID = @Original_BookingID ", sqlConnection); // unsure if i add original_room id as well ?  
+                "WHERE BookingID = @Original_BookingID, GuestID = @Original_GuestID", sqlConnection); // unsure if i add original_room id as well ?  
         
         Build_UPDATE_Parameters(aBooking);
     }
@@ -191,8 +200,8 @@ namespace PhumlaKamnandi.Database
     private void Create_INSERT_Command(Booking aBooking)
     {
         dataAdapter.InsertCommand = new SqlCommand(
-            "INSERT into Booking (RoomID, CheckIn, CheckOut, Price) " +
-            "VALUES (@RoomID, @CheckIn, @CheckOut, @Price)", sqlConnection);
+            "INSERT into Booking (RoomID, CheckIn, CheckOut, Price, GuestID) " +
+            "VALUES (@RoomID, @CheckIn, @CheckOut, @Price, @GuestID)", sqlConnection);
         
         Build_INSERT_Parameters(aBooking);
     }
