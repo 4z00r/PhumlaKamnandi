@@ -29,6 +29,7 @@ namespace PhumlaKamnandi.Business
         public Guest LoggedInGuest
         {
             get { return loggedInGuest; }
+            set { loggedInGuest = value; }
         }
 
         public Price NewPrice
@@ -114,7 +115,7 @@ namespace PhumlaKamnandi.Business
             }
         }
 
-        public void AddGuest(string name, string telephone, string address)
+        public Guest AddGuest(string name, string telephone, string address)
         {
 
 
@@ -129,10 +130,14 @@ namespace PhumlaKamnandi.Business
             {
                 MessageBox.Show("Failed registering new guest");
             }
+
+            return newGuest;
         }
 
         public void AddBooking()
         {
+
+            NewBooking.Guest = loggedInGuest;
 
             bookingController.DataMaintenance(NewBooking, Database.DB.DBOperation.Add);
             bookingController.FinalizeChanges(bookingController.AllBookings[bookingController.AllBookings.Count-1]);

@@ -111,10 +111,12 @@ namespace PhumlaKamnandi
             if (available)
             {
                 ExitButton.Enabled = true;
+                MessageBox.Show("Room found.\nStay will incur a cost of R" + hotel.NewPrice.Total);
             }
             else
             {
                 ExitButton.Enabled = false;
+                MessageBox.Show("No rooms available for this period.");
             }
 
         }

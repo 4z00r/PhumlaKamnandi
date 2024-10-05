@@ -36,22 +36,21 @@ namespace PhumlaKamnandi
             // Find the booking to update
             BookingController bookingController = new BookingController();
             Booking booking = bookingController.Find(bookingID);
-            
+            Guest guest = booking.Guest;
 
             if (booking != null)
             {
 
-                hotel.CheckAvailability(checkIn,checkOut);
-
                 // Update the booking details
+                hotel.LoggedInGuest = guest;
                 bool available = hotel.CheckAvailability(checkIn, checkOut);
-
+                hotel.NewBooking.BookingID = bookingID;
 
                 if (available)
                 {
                     //bookingController.DataMaintenance(hotel.NewBooking, DB.DBOperation.Edit);
                     //bookingController.FinalizeChanges(booking);
-                    hotel.AddBooking();
+                    hotel.EditBooking();
                     MessageBox.Show("Booking updated successfully.");
                 }
                 else
@@ -75,7 +74,6 @@ namespace PhumlaKamnandi
         {
             //bookingIDBox.Text;
             bookingIDBox.Text = booking.BookingID.ToString();
-            RoomIDBox.Text = booking.Room.RoomID.ToString();
             CheckInDate.Value = booking.Dates.CheckIn;
             CheckOutDate.Value = booking.Dates.CheckOut;
 
@@ -114,7 +112,6 @@ namespace PhumlaKamnandi
         {
             // Clear all form fields after cancellation
             bookingIDBox.Clear();
-            RoomIDBox.Clear();
             CheckInDate.Value = DateTime.Today;
             CheckOutDate.Value = DateTime.Today;
         }

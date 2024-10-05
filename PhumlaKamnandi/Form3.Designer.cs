@@ -273,7 +273,7 @@
             this.Controls.Add(this.CheckInButton);
             this.Controls.Add(this.CancelButton);
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Guest Login";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

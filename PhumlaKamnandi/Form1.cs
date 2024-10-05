@@ -23,14 +23,12 @@ namespace PhumlaKamnandi
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            hotel.ClearAll();
         }
 
         private void CheckInButton_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3(hotel, this);
-            form3.Show();
-            this.Hide();
+            
         }
 
         private void CheckOutButton_Click(object sender, EventArgs e)

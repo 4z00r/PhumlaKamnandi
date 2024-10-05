@@ -192,8 +192,8 @@ namespace PhumlaKamnandi.Database
     private void Create_UPDATE_Command(Booking aBooking)
     {
             dataAdapter.UpdateCommand = new SqlCommand(
-                "UPDATE Booking SET RoomID = @RoomID, CheckIn = @CheckIn, CheckOut = @CheckOut, Price = @Price" +
-                "WHERE BookingID = @Original_BookingID, GuestID = @Original_GuestID", sqlConnection); // unsure if i add original_room id as well ?  
+                "UPDATE Booking SET RoomID = @RoomID, CheckIn = @CheckIn, CheckOut = @CheckOut, Price = @Price " +
+                "WHERE BookingID = @Original_BookingID AND GuestID = @Original_GuestID", sqlConnection); // unsure if i add original_room id as well ?  
         
         Build_UPDATE_Parameters(aBooking);
     }

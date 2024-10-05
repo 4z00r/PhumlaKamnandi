@@ -97,7 +97,7 @@
             this.Controls.Add(this.bookingListView);
             this.Controls.Add(this.ExitButton);
             this.Name = "Form5";
-            this.Text = "Form5";
+            this.Text = "Booking Summary";
             this.Load += new System.EventHandler(this.Form5_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

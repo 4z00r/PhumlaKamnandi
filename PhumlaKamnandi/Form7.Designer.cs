@@ -34,8 +34,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.bookingIDBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.RoomIDBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -44,7 +42,7 @@
             // CheckInDate
             // 
             this.CheckInDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckInDate.Location = new System.Drawing.Point(156, 193);
+            this.CheckInDate.Location = new System.Drawing.Point(156, 229);
             this.CheckInDate.Name = "CheckInDate";
             this.CheckInDate.Size = new System.Drawing.Size(334, 29);
             this.CheckInDate.TabIndex = 57;
@@ -52,7 +50,7 @@
             // CheckOutDate
             // 
             this.CheckOutDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckOutDate.Location = new System.Drawing.Point(156, 247);
+            this.CheckOutDate.Location = new System.Drawing.Point(156, 283);
             this.CheckOutDate.Name = "CheckOutDate";
             this.CheckOutDate.Size = new System.Drawing.Size(334, 29);
             this.CheckOutDate.TabIndex = 58;
@@ -61,7 +59,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(29, 193);
+            this.label12.Location = new System.Drawing.Point(29, 229);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 24);
             this.label12.TabIndex = 59;
@@ -71,7 +69,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(29, 247);
+            this.label13.Location = new System.Drawing.Point(29, 283);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(100, 24);
             this.label13.TabIndex = 60;
@@ -95,26 +93,9 @@
             this.label1.TabIndex = 62;
             this.label1.Text = "Booking ID";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 113);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 24);
-            this.label2.TabIndex = 63;
-            this.label2.Text = "Room ID";
-            // 
-            // RoomIDBox
-            // 
-            this.RoomIDBox.Location = new System.Drawing.Point(156, 118);
-            this.RoomIDBox.Name = "RoomIDBox";
-            this.RoomIDBox.Size = new System.Drawing.Size(100, 20);
-            this.RoomIDBox.TabIndex = 64;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(33, 376);
+            this.button1.Location = new System.Drawing.Point(33, 332);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 36);
             this.button1.TabIndex = 67;
@@ -124,7 +105,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(253, 376);
+            this.button2.Location = new System.Drawing.Point(33, 115);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 36);
             this.button2.TabIndex = 68;
@@ -151,8 +132,6 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.RoomIDBox);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bookingIDBox);
             this.Controls.Add(this.label13);
@@ -160,7 +139,7 @@
             this.Controls.Add(this.CheckOutDate);
             this.Controls.Add(this.CheckInDate);
             this.Name = "Form7";
-            this.Text = "Form7";
+            this.Text = "Change/Cancel Booking";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,8 +153,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox bookingIDBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox RoomIDBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;

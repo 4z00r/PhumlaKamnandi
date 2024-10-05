@@ -105,6 +105,12 @@ namespace PhumlaKamnandi
 
         private void button2_Click(object sender, EventArgs e)
         {
+            GuestController g = new GuestController();
+            Collection<Guest> guests = g.AllGuests;
+            if (!bLog)
+            {
+                hotel.LoggedInGuest = guests[guests.Count - 1];
+            }
             DialogResult result = MessageBox.Show(
                 "Do you want to continue and create this booking under GuestID: "+ hotel.LoggedInGuest.GuestID +"?",        
                 "Confirmation",                    
@@ -114,7 +120,7 @@ namespace PhumlaKamnandi
 
             if (result == DialogResult.Yes)
             {
-
+             
                 hotel.AddBooking();
                 BookingController b = new BookingController();
                 Collection<Booking> bookings = b.AllBookings;
@@ -143,10 +149,11 @@ namespace PhumlaKamnandi
             string telepphone = textBox2.Text;
             string address = textBox1.Text;
 
-            hotel.AddGuest(name, telepphone, address);
+            hotel.LoggedInGuest = hotel.AddGuest(name, telepphone, address);        
 
             CancelButton.Enabled = false;
             CheckInButton.Enabled = false;
+            button1.Enabled = false;
             label8.Enabled = false;
             button2.Enabled = true; ;
         }

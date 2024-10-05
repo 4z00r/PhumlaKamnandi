@@ -71,7 +71,7 @@ namespace PhumlaKamnandi.Business
         #region Search Methods
         public Room FindRoomByFreePeriod(Collection<Booking> bookings, Collection<Room> rooms, Period period)
         {
-            Collection<Room> copyRooms = new Collection<Room>(rooms); // copy of list
+            Collection<Room> copyRooms = new Collection<Room>(rooms.Select(r => r.Clone()).ToList()); // deep copy
 
             foreach (Booking booking in bookings)
             {

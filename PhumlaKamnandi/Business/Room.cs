@@ -19,6 +19,15 @@ namespace PhumlaKamnandi.Business
             
 
         }
+        public Room(Room originalRoom) // deep copy constructor
+        {
+            RoomID = originalRoom.RoomID;
+        }
+
+        public Room Clone()
+        {
+            return new Room(this);
+        }
 
         public int RoomID
         {
